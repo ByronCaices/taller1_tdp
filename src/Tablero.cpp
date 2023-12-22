@@ -5,7 +5,7 @@
 #include "Estado.h"
 #include "Heap.h"
 #include "Stack.h"
-#include "VectorString.h"
+#include "MyString.h"
 using namespace std;
 
 #define HORIZONTAL 0
@@ -68,7 +68,7 @@ Estado *Tablero::resolver(Estado *inicial)
     cout << "Paredes" << endl;
     this->mostrarParedes(); // imprimimos las paredes
 
-    VectorString *estadosVisitados = new VectorString(1000); // creamos un Vector de strings para guardar los estados visitados
+    MyString *estadosVisitados = new MyString(1000); // creamos un Vector de strings para guardar los estados visitados
     while (!colaPrioridad.isEmpty()) // mientras la cola de prioridad no este vacia
     {       
         Estado *actual = colaPrioridad.pop();   // sacamos el estado con menor costo acumulado (dado la heuristica)

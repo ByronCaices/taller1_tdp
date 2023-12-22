@@ -1,21 +1,21 @@
-#include "VectorString.h"
 #include <iostream>
 #include <string>
+#include "MyString.h"
 
 // Constructor de un vector
-VectorString::VectorString(int capacidad) {
+MyString::MyString(int capacidad) {
     this->capacidad = capacidad;
     this->tope = -1;
     this->vector = new std::string[capacidad];
 }
 
 // Destructor de un vector
-VectorString::~VectorString() {
+MyString::~MyString() {
     delete[] this->vector;
 }
 
 // Función para agregar un string al vector
-void VectorString::push(const std::string& str){
+void MyString::push(const std::string& str){
     if(this->tope == this->capacidad - 1){
         std::string* aux = new std::string[this->capacidad * 2];
         for (int i = 0; i < this->capacidad; i++) {
@@ -30,12 +30,12 @@ void VectorString::push(const std::string& str){
 }
 
 // Función para saber si el vector está vacío
-bool VectorString::isEmpty(){
+bool MyString::isEmpty(){
     return this->tope == -1;
 }
 
 // Función para mostrar el vector
-void VectorString::printVector(){
+void MyString::printVector(){
     for(int i = 0; i <= this->tope; i++){
         std::cout << this->vector[i] << " ";
     }
@@ -43,7 +43,7 @@ void VectorString::printVector(){
 }
 
 // Función para saber si una cadena está en el vector
-bool VectorString::contains(const std::string& str){
+bool MyString::contains(const std::string& str){
     for(int i = 0; i <= this->tope; i++){
         if(this->vector[i] == str){
             return true;
@@ -53,7 +53,7 @@ bool VectorString::contains(const std::string& str){
 }
 
 // Función para obtener un string en una posición específica
-std::string VectorString::get(int index){
+std::string MyString::get(int index){
     if(index >= 0 && index <= this->tope){
         return this->vector[index];
     } else {

@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 #include "../src/Estado.h"
-#include "../src/VectorString.h"
 #include "../src/Stack.h"
+#include "../src/MyString.h"
 
 int main(){
 
     //Creamos el vector de strings
 
-    VectorString *vector = new VectorString(10);
+    MyString *vector = new MyString(10);
 
     //Creamos un vector de autos
 
