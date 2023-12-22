@@ -28,7 +28,7 @@ Stack readFile(string carsFile)
         FirsId++;                                     // aumentamos el id
     }
     file.close(); // cerramos el archivo
-    cout << "Cantidad de autos: " << count << endl
+    cout << "\t Cantidad de autos: " << count << endl
          << endl; // imprimimos la cantidad de autos
     return open;
 }

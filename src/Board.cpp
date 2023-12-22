@@ -84,17 +84,18 @@ State *Board::astar(State *inicial)
     
     // llenamos el tablero con los autos del estado inicial
     this->fillBoard(inicial->getCars()); 
-    cout << "Estado Inicial" << endl;
+    cout << "\t-> Estado Inicial:" << endl;
     
     // imprimimos el Vector de autos del estado inicial
     inicial->getCars()->printStack(); 
 
     // imprimimos el tablero y paredes
-    cout << "Tablero Inicial" << endl;
+    cout << "\t-> Tablero Inicial:" << endl;
     this->printBoard(); 
-    cout << "Paredes" << endl;
+    cout << "\t-> Paredes del tablero:" << endl;
     this->printWalls(); 
     
+    cout << "\t<<< Buscando solucion... >>>" << endl;
     // creamos un string para guardar los estados visitados como string
     MyString *visitedStates = new MyString(1000); 
 
@@ -108,12 +109,12 @@ State *Board::astar(State *inicial)
 
         if (actual->isSolution())           // si el estado actual es solucion
         {
-            cout << "Solucion encontrada" << endl;
-            cout << "Estado Final" << endl;
+            cout << "\t<<< ¡Solucion encontrada! >>>\n" << endl;
+            cout << "\t-> Estado Final:" << endl;
             actual->printState(); // imprimimos el estado
-            cout << "Tablero Final" << endl;
+            cout << "\t-> Tablero Final:" << endl;
             this->printBoard(); // imprimimos el tablero
-            cout << "Movimientos realizados: " << actual->heuristica << endl;
+            cout << "<<< Movimientos realizados: " << actual->heuristica << endl;
             actual->printSolution(); // imprimimos la solucion
             State *aux = new State(*actual);
             return aux;

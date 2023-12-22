@@ -143,22 +143,22 @@ void State::printSolution()
         {
             if (op->step > 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve a la derecha, " << abs(op->step) << " Pasos" << std::endl;
+                std::cout << "Car: " << movingCar->id << "\tRIGHT \t" << abs(op->step) << " Steps" << std::endl;
             }
             else if (op->step < 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve a la izquierda " << abs(op->step) << " Pasos" << std::endl;
+                std::cout << "Car: " << movingCar->id << "\tLEFT \t" << abs(op->step) << " Steps" << std::endl;
             }
         }
         else if (movingCar->dir == VERTICAL)
         {
             if (op->step > 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve hacia abajo " << abs(op->step) << " Pasos" << std::endl;
+                std::cout << "Car: " << movingCar->id << "\tDOWN \t" << abs(op->step) << " Steps" << std::endl;
             }
             else if (op->step < 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve hacia arriba " << abs(op->step) << " Pasos" << std::endl;
+                std::cout << "Car: " << movingCar->id << "\tUP \t" << abs(op->step) << " Steps" << std::endl;
             }
         }
         else
