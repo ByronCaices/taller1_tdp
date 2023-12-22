@@ -1,36 +1,71 @@
 #include "Operation.h"
 #include "Car.h"
 
-// Contructor de una operacion
+/*
+ * Method: Operation
+ * Description: Constructor
+ * Parameters:
+ * - dir: Direccion de la operacion
+ * - step: Paso de la operacion
+ * Returns:
+ * - Operation: Instancia de la clase Operation
+ */
 Operation::Operation(int dir, int step)
 {
     this->dir = dir;
     this->step = step;
 }
 
-// Contructor de una operacion
+/*
+ * Method: Operation
+ * Description: Constructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - Operation: Instancia de la clase Operation
+ */
 Operation::Operation()
 {
     this->dir = -1;
     this->step = -1;
 }
 
-// Destructor de una operacion
+/*
+ * Method: ~Operation
+ * Description: Destructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 Operation::~Operation()
 {
 }
 
-// Funcion para mostrar una operacion
-void Operation::printOperacion()
+/*
+ * Method: printOperation
+ * Description: metodo para mostrar una operacion
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
+void Operation::printOperation()
 {
     std::cout << "Direccion: " << this->dir << " Paso: " << this->step << std::endl;
 }
 
-// Funcion para operar un auto
+/*
+ * Method: operate
+ * Description: metodo para operar un auto
+ * Parameters:
+ * - car: Auto a operar
+ * Returns:
+ * - Car: Auto operado
+ */
 Car *Operation::operate(Car *car)
 {
     int sumaX, sumaY = 0;
-    // printf("auto: %d\n", car->id);
 
     if (car->dir == HORIZONTAL)
     {                       // Si el auto es horizontal
@@ -50,5 +85,5 @@ Car *Operation::operate(Car *car)
         car->largo,
         car->dir);
 
-    return auxCar; // Retorna el auto actualizado
+    return auxCar;
 }
