@@ -79,9 +79,4 @@ void Stack::remplazar(Auto *autoNuevo)
 
     this->stack[autoNuevo->id - 1] = autoNuevo;
 
-    /* for(int i = 0; i <= this->tope; i++){
-        if(this->vector[i]->id == autoNuevo->id){
-            this->vector[i] = autoNuevo;
-        }
-    } */
 };

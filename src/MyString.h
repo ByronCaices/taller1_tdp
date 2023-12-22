@@ -28,9 +28,9 @@ public:
     std::string get(int index);
 
 private:
-    std::string *vector; // Puntero al array dinámico que contiene los strings
-    int capacidad;       // Capacidad actual del vector
-    int tope;            // Índice del último elemento en el vector
+    std::string *stack; // Puntero al array dinámico que contiene los strings
+    int cap;            // Capacidad actual del vector
+    int top;            // Índice del último elemento en el vector
 };
 
-#endif 
+#endif
