@@ -17,7 +17,7 @@ public:
     bool contains(int id, int x, int y, int largo, int direccion); // Funcion para saber si un auto esta en el vector
     Car *searchById(int id);                                       // Funcion para buscar un auto por su id
     void replace(Car *newCar);                                     // Funcion para remplazar un auto en el vector
-                                                                   // private:
+                                                                 
     int cap;                                                       // Capacidad del vector
     int top;                                                       // Tope del vector
     Car **stack;                                                   // Vector de autos
