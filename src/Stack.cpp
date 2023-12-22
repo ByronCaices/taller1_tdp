@@ -6,7 +6,7 @@ Stack::Stack(int capacity)
 {
     this->cap = capacity;
     this->top = -1;
-    this->stack = new Auto *[capacity];
+    this->stack = new Car *[capacity];
 }
 
 // Destructor de un vector
@@ -16,11 +16,11 @@ Stack::~Stack()
 };
 
 // Funcion para agregar un auto al vector
-void Stack::push(Auto *car)
+void Stack::push(Car *car)
 {
     if (this->top == this->cap - 1)
     {
-        Auto **aux = new Auto *[this->cap * 2];
+        Car **aux = new Car *[this->cap * 2];
         for (int i = 0; i < this->cap; i++)
         {
             aux[i] = this->stack[i];
@@ -61,7 +61,7 @@ bool Stack::contains(int id, int x, int y, int largo, int direccion)
 };
 
 // Funcion para buscar un auto por su id
-Auto *Stack::buscarPorId(int id)
+Car *Stack::buscarPorId(int id)
 {
     for (int i = 0; i <= this->top; i++)
     {
@@ -74,7 +74,7 @@ Auto *Stack::buscarPorId(int id)
 };
 
 // Funcion para reemplazar un auto en el vector
-void Stack::remplazar(Auto *autoNuevo)
+void Stack::remplazar(Car *autoNuevo)
 {
 
     this->stack[autoNuevo->id - 1] = autoNuevo;

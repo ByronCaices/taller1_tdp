@@ -5,15 +5,15 @@ int main()
     Stack *autos = new Stack(10);
 
     //Creamos autos cualquieras
-    autos->push(new Auto(1, 4, 2, 2, HORIZONTAL));
-    autos->push(new Auto(2, 0, 0, 2, VERTICAL));
-    autos->push(new Auto(3, 0, 3, 2, VERTICAL));
-    autos->push(new Auto(4, 1, 0, 2, HORIZONTAL));
-    autos->push(new Auto(5, 1, 3, 2, HORIZONTAL));
-    autos->push(new Auto(6, 3, 0, 2, VERTICAL));
-    autos->push(new Auto(7, 3, 3, 2, VERTICAL));
-    autos->push(new Auto(8, 4, 0, 2, HORIZONTAL));
-    autos->push(new Auto(9, 4, 3, 2, HORIZONTAL));
+    autos->push(new Car(1, 4, 2, 2, HORIZONTAL));
+    autos->push(new Car(2, 0, 0, 2, VERTICAL));
+    autos->push(new Car(3, 0, 3, 2, VERTICAL));
+    autos->push(new Car(4, 1, 0, 2, HORIZONTAL));
+    autos->push(new Car(5, 1, 3, 2, HORIZONTAL));
+    autos->push(new Car(6, 3, 0, 2, VERTICAL));
+    autos->push(new Car(7, 3, 3, 2, VERTICAL));
+    autos->push(new Car(8, 4, 0, 2, HORIZONTAL));
+    autos->push(new Car(9, 4, 3, 2, HORIZONTAL));
 
     //Creamos el estado inicial
 

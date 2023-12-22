@@ -1,5 +1,5 @@
 #include "Operacion.h"
-#include "Auto.h"
+#include "Car.h"
 
 //Contructor de una operacion
 Operacion::Operacion(int direccion, int paso) {
@@ -24,7 +24,7 @@ void Operacion::printOperacion() {
 }
 
 // Funcion para operar un auto
-Auto* Operacion::operar(Auto* auto_) {
+Car* Operacion::operar(Car* auto_) {
     //printf("auto: %d\n", auto_->id);
     int sumaX,sumaY = 0;
 
@@ -36,7 +36,7 @@ Auto* Operacion::operar(Auto* auto_) {
         sumaY = this->paso; // Suma el paso a la posicion en y
     } 
 
-    Auto *autoAux = new Auto( // Crea un nuevo auto con la posicion actualizada
+    Car *autoAux = new Car( // Crea un nuevo auto con la posicion actualizada
         auto_->id,
         auto_->posX + sumaX,
         auto_->posY + sumaY,

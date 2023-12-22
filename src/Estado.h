@@ -7,7 +7,7 @@
 
 class Estado{
     public:
-        Estado(Stack *autos, Operacion *Op, Estado *padre, Auto* automoviendose); // Constructor de un estado
+        Estado(Stack *autos, Operacion *Op, Estado *padre, Car* automoviendose); // Constructor de un estado
         Estado(Stack *autos, Operacion *Op, int idAuto); // Constructor de un estado 
         ~Estado(); // Destructor de un estado
         void mostrarEstado(); // Funcion para mostrar un estado
@@ -23,7 +23,7 @@ class Estado{
         Stack *autos; // Vector de autos
         Operacion *Op; // Operacion que se realizo para llegar a este estado
         Estado *padre;  // Padre de este estado
-        Auto* automoviendose; // Auto que se esta moviendo en este estado
+        Car* automoviendose; // Auto que se esta moviendo en este estado
         int heuristica; // Costo acumulado de este estado
         //int heuristica; // Heuristica de este estado    
         std::string toString() const; // Funcion para convertir un estado a string

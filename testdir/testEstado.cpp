@@ -1,15 +1,15 @@
 #include "../src/Estado.h"
-#include "../src/Auto.h"
+#include "../src/Car.h"
 #include "../src/Stack.h"
 
 int main(){
 
     //creamos los autos
-    Auto *auto1 = new Auto(1,2,2,0,0);
-    Auto *auto2 = new Auto(2,0,0,2,1);
-    Auto *auto3 = new Auto(3,1,1,2,0);
-    Auto *auto4 = new Auto(4,4,1,2,1);
-    Auto *auto5 = new Auto(5,5,1,2,1);
+    Car *auto1 = new Car(1,2,2,0,0);
+    Car *auto2 = new Car(2,0,0,2,1);
+    Car *auto3 = new Car(3,1,1,2,0);
+    Car *auto4 = new Car(4,4,1,2,1);
+    Car *auto5 = new Car(5,5,1,2,1);
     
     //creamos el vector
 

@@ -1,10 +1,10 @@
-#include "../src/Auto.h"
+#include "../src/Car.h"
 #include "../src/Operacion.h"
 #include <iostream>
 
 int main(){
     //creamos el auto rojo
-    Auto *Auto1 = new Auto(1,0,2,2,0);
+    Car *Auto1 = new Car(1,0,2,2,0);
 
     //imprimimos el auto rojo antes de la operacion
 
@@ -19,7 +19,7 @@ int main(){
     Operacion *op = new Operacion(0,1);
 
     //Realizamos la operacion
-    Auto *AutoRojoMovido = op->operar(Auto1);
+    Car *AutoRojoMovido = op->operar(Auto1);
 
     //imprimimos el auto rojo despues de la operacion
     std::cout << "Auto Rojo despues de la operacion: "
@@ -31,7 +31,7 @@ int main(){
 
 
     //creamos un auto cualquiera en vertical
-    Auto *Auto2 = new Auto(2,2,2,2,1);
+    Car *Auto2 = new Car(2,2,2,2,1);
 
     //imprimimos el auto cualquiera antes de la operacion
     std::cout << "Auto cualquiera antes de la operacion:  "
@@ -45,7 +45,7 @@ int main(){
     Operacion *op2 = new Operacion(0,-1);
 
     //Realizamos la operacion
-    Auto *AutoCualquieraMovido = op2->operar(Auto2);
+    Car *AutoCualquieraMovido = op2->operar(Auto2);
 
     //imprimimos el auto cualquiera despues de la operacion
     std::cout << "Auto cualquiera despues de la operacion:  "

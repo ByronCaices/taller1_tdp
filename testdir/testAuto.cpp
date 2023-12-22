@@ -1,10 +1,10 @@
-#include "../src/Auto.h"
+#include "../src/Car.h"
 
 int main(){
 
     //creamos el auto rojo
     std::cout << "Creando auto rojo..." << std::endl;
-    Auto *Auto1 = new Auto(1,0,2,2,0);
+    Car *Auto1 = new Car(1,0,2,2,0);
 
     //imprimimos el auto creado
 
@@ -18,7 +18,7 @@ int main(){
     //creamos otro auto cualquiera
 
     std::cout << "Creando auto cualquiera..." << std::endl;
-    Auto *Auto2 = new Auto(2,2,2,2,1);
+    Car *Auto2 = new Car(2,2,2,2,1);
 
     //imprimimos el auto creado
 

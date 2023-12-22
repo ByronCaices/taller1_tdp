@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Tablero.h"
-#include "Auto.h"
+#include "Car.h"
 #include "Estado.h"
 #include "Heap.h"
 #include "Stack.h"
@@ -94,7 +94,7 @@ Estado *Tablero::resolver(Estado *inicial)
         for (int i = 0; i <= autos->top; i++)  // por cada auto en el Vector de autos
         {
             
-            Auto *autoCopia = autos->stack[i];  // obtenemos el auto
+            Car *autoCopia = autos->stack[i];  // obtenemos el auto
             
 
             for (int j = 0; j < 8; j++) // por cada operacion
@@ -102,7 +102,7 @@ Estado *Tablero::resolver(Estado *inicial)
                 // Copiar el Vector de autos
                 
    
-                Auto *nuevoAuto = autoCopia->mover(&this->operaciones[j], this->tablero, this->paredes); // movemos el auto con la operacion 
+                Car *nuevoAuto = autoCopia->mover(&this->operaciones[j], this->tablero, this->paredes); // movemos el auto con la operacion 
                 
                 if (nuevoAuto != nullptr) // si el auto se pudo mover
                 {
@@ -136,8 +136,8 @@ Stack *Tablero::copiarVectorProfundamente(Stack *original) // copia el Vector de
     Stack *copia = new Stack(original->cap);
     for (int i = 0; i <= original->top; i++)
     {
-        Auto *autoOriginal = original->stack[i];
-        Auto *autoCopia = new Auto(*autoOriginal); 
+        Car *autoOriginal = original->stack[i];
+        Car *autoCopia = new Car(*autoOriginal); 
         copia->push(autoCopia);
     }
     return copia;
@@ -157,7 +157,7 @@ void Tablero::llenarTablero(Stack *autos)
 
     for (int i = 0; i <= autos->top; i++) // llenamos el tablero con los autos del Vector de autos
     {
-        Auto *auto_ = autos->stack[i];
+        Car *auto_ = autos->stack[i];
         int x = auto_->posX;
         int y = auto_->posY;
         int largo = auto_->Largo; 

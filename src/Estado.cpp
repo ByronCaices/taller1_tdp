@@ -3,7 +3,7 @@
 
 
 //Contructor de un estado
-Estado::Estado(Stack *autos, Operacion *Op, Estado *padre, Auto *automoviendose)
+Estado::Estado(Stack *autos, Operacion *Op, Estado *padre, Car *automoviendose)
 {
     this->autos = autos;
     this->Op = Op;
@@ -67,7 +67,7 @@ std::string Estado::toString() const
     std::stringstream ss;
     for (int i = 0; i <= this->autos->top; i++)
     {
-        const Auto *auto_ = this->autos->stack[i];
+        const Car *auto_ = this->autos->stack[i];
         ss << auto_->id << " " << auto_->posX << " " << auto_->posY << " " << auto_->Direccion << " " << auto_->Largo << std::endl;
     }
     return ss.str();

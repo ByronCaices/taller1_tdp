@@ -23,7 +23,7 @@ Stack readFile(string carsFile) {
         charStream << line; // guarda el string en el stream
         charStream >> y >> x >> largo >> dir; // lee los datos del stream y los guarda en las variables. Notar que como es un input stream se usa la operacion inversa a <<, que es >>. Automaticamente lee el tipo de dato de cada variable.
        // cout << "x: "<< x << " y: " << y << " largo: " << largo << " dir: " << dir << endl; // imprimimos de vuelta todo. Aqui deben crear sus objetos de auto, y guardarlos en en State.
-        open.push(new Auto(FirsId,x, y, largo, dir)); // guardamos el auto en el Vector
+        open.push(new Car(FirsId,x, y, largo, dir)); // guardamos el auto en el Vector
         FirsId++; // aumentamos el id
     }
     file.close(); // cerramos el archivo

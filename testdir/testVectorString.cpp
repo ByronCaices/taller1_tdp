@@ -16,8 +16,8 @@ int main(){
 
     //Creamos autos para ingresar al vector
 
-    Auto *auto1 = new Auto(1, 2, 2, 2, HORIZONTAL);
-    Auto *auto2 = new Auto(2, 2, 3, 2, HORIZONTAL);
+    Car *auto1 = new Car(1, 2, 2, 2, HORIZONTAL);
+    Car *auto2 = new Car(2, 2, 3, 2, HORIZONTAL);
 
     //los ingresamos al vector
 
