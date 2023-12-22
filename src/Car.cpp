@@ -32,7 +32,7 @@ Car *Car::move(Operation *op, int **board, int **walls)
     Car *copia;
     if (verifyMove(board, op, walls))
     {
-        copia = op->operar(this);
+        copia = op->operate(this);
         return copia;
     }
     else

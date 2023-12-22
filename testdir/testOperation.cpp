@@ -19,7 +19,7 @@ int main(){
     Operation *op = new Operation(0,1);
 
     //Realizamos la operacion
-    Car *AutoRojoMovido = op->operar(Auto1);
+    Car *AutoRojoMovido = op->operate(Auto1);
 
     //imprimimos el auto rojo despues de la operacion
     std::cout << "Auto Rojo despues de la operacion: "
@@ -45,7 +45,7 @@ int main(){
     Operation *op2 = new Operation(0,-1);
 
     //Realizamos la operacion
-    Car *AutoCualquieraMovido = op2->operar(Auto2);
+    Car *AutoCualquieraMovido = op2->operate(Auto2);
 
     //imprimimos el auto cualquiera despues de la operacion
     std::cout << "Auto cualquiera despues de la operacion:  "

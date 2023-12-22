@@ -74,10 +74,10 @@ int main(){
     //creamos el tablero
     Board tablero(6);
     //llenamos las paredes del tablero
-    tablero.setParedes(walls);
+    tablero.setWalls(walls);
 
     //resolvemos el tablero
-    tablero.resolver(inicial);
+    tablero.astar(inicial);
 
     return 0;
 

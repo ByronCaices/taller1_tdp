@@ -27,7 +27,7 @@ void Operation::printOperacion()
 }
 
 // Funcion para operar un auto
-Car *Operation::operar(Car *car)
+Car *Operation::operate(Car *car)
 {
     int sumaX, sumaY = 0;
     // printf("auto: %d\n", car->id);

@@ -71,10 +71,10 @@ int main() {
     State* estado = new State(&autos, nullptr,0); // creamos el estado inicial
     Board tablero(6); // creamos el tablero
 
-    tablero.setParedes(paredes("./testfiles/"+Archivoparedes)); // leemos las paredes
+    tablero.setWalls(paredes("./testfiles/"+Archivoparedes)); // leemos las paredes
 
     tStart = clock(); // iniciamos el reloj
-    tablero.resolver(estado); // resolvemos el tablero
+    tablero.astar(estado); // resolvemos el tablero
     tEnd = clock(); // detenemos el reloj
 
     double time_taken = double(tEnd - tStart) / double(CLOCKS_PER_SEC); // calculamos el tiempo
