@@ -1,7 +1,17 @@
 #include "Car.h"
-#include "Operation.h"
 
-// Contructor de un auto
+/*
+ * Method: Car
+ * Description: Constructor de un auto
+ * Parameters:
+ * - id: Identificador del auto
+ * - col: Posicion en x del auto
+ * - fila: Posicion en y del auto
+ * - largo: Largo del auto
+ * - dir: Direccion del auto
+ * Returns:
+ * - Instancia de la clase Car
+ */
 Car::Car(int id, int col, int fila, int largo, int dir)
 {
     this->id = id;
@@ -11,12 +21,26 @@ Car::Car(int id, int col, int fila, int largo, int dir)
     this->largo = largo;
 }
 
-// Destructor de un auto
+/*
+ * Method: ~Car
+ * Description: Destructor de un auto
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 Car::~Car()
 {
 }
 
-// Constructor de copia de un auto
+/*
+ * Method: ~Car
+ * Description: Clonador de un auto
+ * Parameters:
+ * - copia: Auto a copiar
+ * Returns:
+ * - Instancia de la clase Car
+ */
 Car::Car(const Car &copia)
 {
     this->id = copia.id;
@@ -26,7 +50,16 @@ Car::Car(const Car &copia)
     this->largo = copia.largo;
 }
 
-// Funcion para mover un auto
+/*
+ * Method: move
+ * Description: Funcion para mover un auto
+ * Parameters:
+ * - op: Operacion a realizar
+ * - board: Tablero de juego
+ * - walls: Paredes del tablero
+ * Returns:
+ * - Auto movido
+ */
 Car *Car::move(Operation *op, int **board, int **walls)
 {
     Car *copia;
@@ -42,7 +75,16 @@ Car *Car::move(Operation *op, int **board, int **walls)
     return nullptr;
 }
 
-// Funcion para verificar si un auto puede moverse
+/*
+ * Method: verifyMove
+ * Description: Metodo para verificar si un auto puede moverse
+ * Parameters:
+ * - board: Tablero de juego
+ * - op: Operacion a realizar
+ * - walls: Paredes del tablero
+ * Returns:
+ * - bool
+ */
 bool Car::verifyMove(int **board, Operation *op, int **walls)
 {
     int llegada_x, llegada_y, inicio_x, inicio_y, pasosx, pasosy;
@@ -84,8 +126,9 @@ bool Car::verifyMove(int **board, Operation *op, int **walls)
         return false;
     }
 
-    pasosx = abs(llegada_x - inicio_x); // Se calcula la cantidad de pasos que se mueve
-    pasosy = abs(llegada_y - inicio_y); // Se calcula la cantidad de pasos que se mueve
+    // Se calcula la cantidad de pasos que se mueve
+    pasosx = abs(llegada_x - inicio_x);
+    pasosy = abs(llegada_y - inicio_y);
 
     if (this->dir == HORIZONTAL)
     { // Si el auto esta en horizontal
