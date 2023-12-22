@@ -81,35 +81,36 @@ State *Board::astar(State *inicial)
     inicial->heuristica = 0;
     Heap priorityQueue(1000);
     priorityQueue.push(inicial);
-    
+
     // llenamos el tablero con los autos del estado inicial
-    this->fillBoard(inicial->getCars()); 
+    this->fillBoard(inicial->getCars());
     cout << "\t-> Estado Inicial:" << endl;
-    
+
     // imprimimos el Vector de autos del estado inicial
-    inicial->getCars()->printStack(); 
+    inicial->getCars()->printStack();
 
     // imprimimos el tablero y paredes
     cout << "\t-> Tablero Inicial:" << endl;
-    this->printBoard(); 
+    this->printBoard();
     cout << "\t-> Paredes del tablero:" << endl;
-    this->printWalls(); 
-    
+    this->printWalls();
+
     cout << "\t<<< Buscando solucion... >>>" << endl;
     // creamos un string para guardar los estados visitados como string
-    MyString *visitedStates = new MyString(1000); 
+    MyString *visitedStates = new MyString(1000);
 
-    while (!priorityQueue.isEmpty())            
+    while (!priorityQueue.isEmpty())
     {
-        State *actual = priorityQueue.pop(); // saco el estado con menor costo 
+        State *actual = priorityQueue.pop(); // saco el estado con menor costo
 
         visitedStates->push(actual->toString()); // agregamos el estado a los estados visitados
 
         this->fillBoard(actual->getCars()); // llenamos el tablero con los autos del estado actual
 
-        if (actual->isSolution())           // si el estado actual es solucion
+        if (actual->isSolution()) // si el estado actual es solucion
         {
-            cout << "\t<<< ¡Solucion encontrada! >>>\n" << endl;
+            cout << "\t<<< ¡Solucion encontrada! >>>\n"
+                 << endl;
             cout << "\t-> Estado Final:" << endl;
             actual->printState(); // imprimimos el estado
             cout << "\t-> Tablero Final:" << endl;
@@ -125,9 +126,9 @@ State *Board::astar(State *inicial)
         for (int i = 0; i <= autos->top; i++) // por cada auto en el Vector de autos
         {
 
-            Car *clonedCar = autos->stack[i]; 
+            Car *clonedCar = autos->stack[i];
 
-            for (int j = 0; j < 8; j++) 
+            for (int j = 0; j < 8; j++)
             {
                 // Copiar el Vector de autos
 
@@ -145,9 +146,9 @@ State *Board::astar(State *inicial)
                         carsCopy->replace(newCar);          // reemplazamos el auto en el Vector de autos
 
                         State *newState = new State(carsCopy, &this->ops[j], actual, newCar); // creamos un nuevo estado con el Vector de autos copiado
-                        
+
                         if (priorityQueue.contains(newState) || visitedStates->contains(newState->toString()))
-                        {             // si la cola de prioridad ya contiene el estado 
+                        {             // si la cola de prioridad ya contiene el estado
                             continue; // se continua
                         }
                         newState->heuristica = actual->heuristica + 1; // aumentamos el costo acumulado

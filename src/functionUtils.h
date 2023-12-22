@@ -11,19 +11,19 @@ using namespace std;
 Stack readFile(string carsFile)
 {
     int x, y, largo, dir;
-    int **data = new int *[18]; // 18 es el maximo de autos. 3 por fila (de largo 2) x 6 filas
-    ifstream file(carsFile);    // es un stream de "FileInput" desde un archivo.
-    string line;                // es un objeto que representa un arreglo de char que es auto ajustable.
-    int count = 0;              // cuenta la cantidad de autos (uno por linea)
-    Stack open(18);             // 18 es el maximo de autos. 3 por fila (de largo 2) x 6 filas
-    int FirsId = 1;             // id del auto actual
+    int **data = new int *[18];
+    ifstream file(carsFile);
+    string line;
+    int count = 0;
+    Stack open(18);
+    int FirsId = 1;
     while (getline(file, line))
     { // lee una linea del archivo y la guarda en "line". Si no hay mas lineas, sale del while(retorna false).
         count++;
-        stringstream charStream;                      // es un stream de "StringInput" desde un string.
-        charStream << line;                           // guarda el string en el stream
-        charStream >> y >> x >> largo >> dir;         // lee los datos del stream y los guarda en las variables. Notar que como es un input stream se usa la operacion inversa a <<, que es >>. Automaticamente lee el tipo de dato de cada variable.
-                                                      // cout << "x: "<< x << " y: " << y << " largo: " << largo << " dir: " << dir << endl; // imprimimos de vuelta todo. Aqui deben crear sus objetos de auto, y guardarlos en en State.
+        stringstream charStream;
+        charStream << line;
+        charStream >> y >> x >> largo >> dir;
+
         open.push(new Car(FirsId, x, y, largo, dir)); // guardamos el auto en el Vector
         FirsId++;                                     // aumentamos el id
     }
