@@ -9,8 +9,8 @@ OBJDIR = obj
 
 all: main bin/testRH bin/testCar bin/testState bin/testStack bin/testOperation bin/testHeap bin/testMyString
 
-main: obj/Car.o obj/Stack.o obj/Board.o obj/Operation.o main.cpp obj/State.o obj/Heap.o obj/MyString.o
-	g++ ${FLAGS} obj/Car.o obj/Stack.o obj/Board.o obj/Operation.o obj/State.o obj/Heap.o obj/MyString.o main.cpp -o main 
+main: obj/Car.o obj/Stack.o obj/Board.o obj/Operation.o src/main.cpp obj/State.o obj/Heap.o obj/MyString.o
+	g++ ${FLAGS} obj/Car.o obj/Stack.o obj/Board.o obj/Operation.o obj/State.o obj/Heap.o obj/MyString.o src/main.cpp -o main 
 
 bin/testHeap: obj/Car.o obj/Stack.o obj/State.o obj/Heap.o obj/Operation.o obj/MyString.o testdir/testHeap.cpp
 	g++ ${FLAGS} obj/Car.o obj/Stack.o obj/State.o obj/Heap.o obj/Operation.o obj/MyString.o testdir/testHeap.cpp -o bin/testHeap
