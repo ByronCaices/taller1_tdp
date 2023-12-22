@@ -58,9 +58,9 @@ State *Board::resolver(State *inicial)
     Heap priorityQueue(1000);    // creamos la cola de prioridad
     priorityQueue.push(inicial); // agregamos el estado inicial a la cola de prioridad
 
-    this->llenarTablero(inicial->getAutos()); // llenamos el tablero con los autos del estado inicial
+    this->llenarTablero(inicial->getCars()); // llenamos el tablero con los autos del estado inicial
     cout << "Estado Inicial" << endl;
-    inicial->getAutos()->printVector(); // imprimimos el Vector de autos del estado inicial
+    inicial->getCars()->printStack(); // imprimimos el Vector de autos del estado inicial
     cout << "Tablero Inicial" << endl;
     this->MostarTablero(); // imprimimos el tablero
     cout << "Paredes" << endl;
@@ -73,21 +73,21 @@ State *Board::resolver(State *inicial)
 
         visitedStates->push(actual->toString()); // agregamos el estado a los estados visitados
 
-        this->llenarTablero(actual->getAutos()); // llenamos el tablero con los autos del estado actual
-        if (actual->esSolucion())                // si el estado actual es solucion
+        this->llenarTablero(actual->getCars()); // llenamos el tablero con los autos del estado actual
+        if (actual->isSolution())                // si el estado actual es solucion
         {
             cout << "Solucion encontrada" << endl;
             cout << "Estado Final" << endl;
-            actual->mostrarEstado(); // imprimimos el estado
+            actual->printState(); // imprimimos el estado
             cout << "Tablero Final" << endl;
             this->MostarTablero(); // imprimimos el tablero
             cout << "Movimientos realizados: " << actual->heuristica << endl;
-            actual->mostrarsolucion(); // imprimimos la solucion
+            actual->printSolution(); // imprimimos la solucion
             State *aux = new State(*actual);
             return aux;
         }
 
-        Stack *autos = actual->getAutos(); // obtenemos el Vector de autos del estado actual
+        Stack *autos = actual->getCars(); // obtenemos el Vector de autos del estado actual
 
         for (int i = 0; i <= autos->top; i++) // por cada auto en el Vector de autos
         {
@@ -98,7 +98,7 @@ State *Board::resolver(State *inicial)
             {
                 // Copiar el Vector de autos
 
-                Car *newCar = clonedCar->mover(&this->ops[j], this->board, this->walls); // movemos el auto con la operacion
+                Car *newCar = clonedCar->move(&this->ops[j], this->board, this->walls); // movemos el auto con la operacion
 
                 if (newCar != nullptr) // si el auto se pudo mover
                 {
@@ -109,7 +109,7 @@ State *Board::resolver(State *inicial)
                     else
                     {
                         Stack *carsCopy = copiarVectorProfundamente(autos); // copiamos el Vector de autos
-                        carsCopy->remplazar(newCar);                        // remplazamos el auto en el Vector de autos
+                        carsCopy->replace(newCar);                        // remplazamos el auto en el Vector de autos
 
                         State *newState = new State(carsCopy, &this->ops[j], actual, newCar); // creamos un nuevo estado con el Vector de autos copiado
                         if (priorityQueue.Contains(newState) || visitedStates->contains(newState->toString()))

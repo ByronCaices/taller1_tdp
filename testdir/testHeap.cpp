@@ -18,27 +18,27 @@ int main()
     //Creamos el estado inicial
 
     State *inicial = new State(autos, nullptr, 0);
-    inicial->mostrarEstado();
+    inicial->printState();
     inicial->heuristica = 4; //ingresamos cualquier valor a su heuristica
 
     //Creamos el estado 1
     State *estado1 = new State(autos, nullptr, 0);
-    estado1->mostrarEstado();
+    estado1->printState();
     estado1->heuristica = 8;
 
     //Creamos el estado 2
     State *estado2 = new State(autos, nullptr, 0);
-    estado2->mostrarEstado();
+    estado2->printState();
     estado2->heuristica = 5;
 
     //Creamos el estado 3
     State *estado3 = new State(autos, nullptr, 0);
-    estado3->mostrarEstado();
+    estado3->printState();
     estado3->heuristica = 32;
 
     //Creamos el estado 4
     State *estado4 = new State(autos, nullptr, 0);
-    estado4->mostrarEstado();
+    estado4->printState();
     estado4->heuristica = 3;
 
     //Creamos la cola de prioridad

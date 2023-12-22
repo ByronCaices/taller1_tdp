@@ -27,10 +27,10 @@ Car::Car(const Car &copia)
 }
 
 // Funcion para mover un auto
-Car *Car::mover(Operation *op, int **board, int **walls)
+Car *Car::move(Operation *op, int **board, int **walls)
 {
     Car *copia;
-    if (verificarMovimiento(board, op, walls))
+    if (verifyMove(board, op, walls))
     {
         copia = op->operar(this);
         return copia;
@@ -43,7 +43,7 @@ Car *Car::mover(Operation *op, int **board, int **walls)
 }
 
 // Funcion para verificar si un auto puede moverse
-bool Car::verificarMovimiento(int **board, Operation *op, int **walls)
+bool Car::verifyMove(int **board, Operation *op, int **walls)
 {
     int llegada_x, llegada_y, inicio_x, inicio_y, pasosx, pasosy;
 

@@ -3,11 +3,11 @@
 #include "MyString.h"
 
 // Constructor de un stack
-MyString::MyString(int capacidad)
+MyString::MyString(int capcity)
 {
-    this->cap = capacidad;
+    this->cap = capcity;
     this->top = -1;
-    this->stack = new std::string[capacidad];
+    this->stack = new std::string[capcity];
 }
 
 // Destructor de un stack

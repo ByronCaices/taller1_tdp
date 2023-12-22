@@ -8,14 +8,14 @@ class State
 {
 public:
     State(Stack *cars, Operation *op, State *padre, Car *movingCar); // Constructor de un estado
-    State(Stack *cars, Operation *op, int idCar);                        // Constructor de un estado
-    ~State();                                                              // Destructor de un estado
-    void mostrarEstado();                                                  // Funcion para mostrar un estado
-    bool esSolucion();                                                     // Funcion para verificar si un estado es solucion
-    int CalcularHeuristica() const;                                        // Funcion para calcular la heuristica de un estado
-    Stack *getAutos() const;                                               // Funcion para obtener los autos de un estado
-    void mostrartablero();                                                 // Funcion para mostrar el tablero de un estado
-    void mostrarsolucion();                                                // Funcion para mostrar la solucion de un estado
+    State(Stack *cars, Operation *op, int idCar);                    // Constructor de un estado
+    ~State();                                                        // Destructor de un estado
+    void printState();                                               // Funcion para mostrar un estado
+    bool isSolution();                                               // Funcion para verificar si un estado es solucion
+    int calcHeuristica() const;                                      // Funcion para calcular la heuristica de un estado
+    Stack *getCars() const;                                          // Funcion para obtener los autos de un estado
+    void printBoard();                                               // Funcion para mostrar el tablero de un estado
+    void printSolution();                                            // Funcion para mostrar la solucion de un estado
 
     // private:
     Stack *cars;    // Vector de autos
@@ -27,4 +27,4 @@ public:
     std::string toString() const; // Funcion para convertir un estado a string
 };
 
-#endif 
+#endif

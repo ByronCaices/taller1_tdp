@@ -1,5 +1,5 @@
-#include "Stack.h"
 #include <string>
+#include "Stack.h"
 
 // Contructor de un vector
 Stack::Stack(int capacity)
@@ -40,7 +40,7 @@ bool Stack::isEmpty()
 };
 
 // Funcion mostrar el vector
-void Stack::printVector()
+void Stack::printStack()
 {
     for (int i = 0; i <= this->top; i++)
     {
@@ -60,8 +60,15 @@ bool Stack::contains(int id, int x, int y, int largo, int direccion)
     return false;
 };
 
+// Funcion para reemplazar un auto en el vector
+void Stack::replace(Car *newCar)
+{
+
+    this->stack[newCar->id - 1] = newCar;
+};
+
 // Funcion para buscar un auto por su id
-Car *Stack::buscarPorId(int id)
+Car *Stack::searchById(int id)
 {
     for (int i = 0; i <= this->top; i++)
     {
@@ -73,10 +80,3 @@ Car *Stack::buscarPorId(int id)
     return NULL;
 };
 
-// Funcion para reemplazar un auto en el vector
-void Stack::remplazar(Car *autoNuevo)
-{
-
-    this->stack[autoNuevo->id - 1] = autoNuevo;
-
-};

@@ -28,14 +28,14 @@ State::~State(){
 };
 
 // Funcion para mostrar un estado
-void State::mostrarEstado()
+void State::printState()
 {
-    this->cars->printVector();
+    this->cars->printStack();
 };
 
 // Funcion para verificar si un estado es solucion
 
-bool State::esSolucion()
+bool State::isSolution()
 {
     bool p = this->cars->contains(1, 4, 2, 2, HORIZONTAL); // Busca el auto rojo en la posicion de salida
     if (p)
@@ -51,28 +51,28 @@ bool State::esSolucion()
 // Funcion para convertir un estado a string
 std::string State::toString() const
 {
-    std::stringstream ss;
+    std::stringstream sstream;
     for (int i = 0; i <= this->cars->top; i++)
     {
-        const Car *auto_ = this->cars->stack[i];
-        ss << auto_->id << " " << auto_->columna << " " << auto_->fila << " " << auto_->dir << " " << auto_->largo << std::endl;
+        const Car *car = this->cars->stack[i];
+        sstream << car->id << " " << car->columna << " " << car->fila << " " << car->dir << " " << car->largo << std::endl;
     }
-    return ss.str();
+    return sstream.str();
 };
 
 // Funcion para obtener los autos de un estado
-Stack *State::getAutos() const
+Stack *State::getCars() const
 {
     return this->cars;
 };
 
 // Funcion para mostrar la solucion final
-void State::mostrarsolucion()
+void State::printSolution()
 {
     if (this->padre != nullptr)
     {
         State *padre = this->padre;
-        padre->mostrarsolucion();
+        padre->printSolution();
     }
     if (this->op != nullptr)
     {

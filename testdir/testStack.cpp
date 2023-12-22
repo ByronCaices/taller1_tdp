@@ -48,7 +48,7 @@ int main(){
 
     //imprimimos el vector
     std::cout << "Imprimiendo vector..." << std::endl;
-    vector->printVector();
+    vector->printStack();
 
    
 

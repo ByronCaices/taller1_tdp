@@ -28,7 +28,7 @@ int main(){
     State *estado = new State(vector,nullptr,nullptr,nullptr); // creamos un estado con el vector de autos creado anteriormente
     estado->heuristica = 5; // le asignamos una heuristica
 
-    estado->mostrarEstado(); // imprimimos el estado
+    estado->printState(); // imprimimos el estado
     std::cout << "Heuristica: " << estado->heuristica << std::endl; // imprimimos la heuristica
 
     
