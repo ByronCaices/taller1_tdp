@@ -40,7 +40,7 @@ int main(){
 
     //Mostramos el vector
 
-    vector->printVector();
+    vector->printMyString();
 
     //el vector mostrará los estados pero como todos tienen los mismos autos, mostrará lo mismo.
 

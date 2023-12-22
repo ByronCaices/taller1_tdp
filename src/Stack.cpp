@@ -1,7 +1,14 @@
 #include <string>
 #include "Stack.h"
 
-// Contructor de un vector
+/*
+ * Method: Stack
+ * Description: Constructor
+ * Parameters:
+ * - capacity: Capacidad del stack
+ * Returns:
+ * - Stack: Instancia de la clase Stack
+ */
 Stack::Stack(int capacity)
 {
     this->cap = capacity;
@@ -9,13 +16,27 @@ Stack::Stack(int capacity)
     this->stack = new Car *[capacity];
 }
 
-// Destructor de un vector
+/*
+ * Method: ~Stack
+ * Description: Destructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 Stack::~Stack()
 {
     delete[] this->stack;
 };
 
-// Funcion para agregar un auto al vector
+/*
+ * Method: push
+ * Description: Metodo para agregar un auto al stack
+ * Parameters:
+ * - car: Auto a agregar
+ * Returns:
+ * - void
+ */
 void Stack::push(Car *car)
 {
     if (this->top == this->cap - 1)
@@ -33,13 +54,27 @@ void Stack::push(Car *car)
     this->stack[this->top] = car;
 };
 
-// Funcion saber si el vector esta vacio
+/*
+ * Method: isEmpty
+ * Description: Metodo saber si el stack esta vacio
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 bool Stack::isEmpty()
 {
     return this->top == -1;
 };
 
-// Funcion mostrar el vector
+/*
+ * Method: printStack
+ * Description: Imprime stack en consola
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void Stack::printStack()
 {
     for (int i = 0; i <= this->top; i++)
@@ -49,7 +84,18 @@ void Stack::printStack()
     std::cout << std::endl;
 };
 
-// Funcion para saber si un auto esta en el vector
+/*
+ * Method: contains
+ * Description: Metodo para saber si un auto esta en el stack
+ * Parameters:
+ * - id: Id del auto
+ * - x: Columna del auto
+ * - y: Fila del auto
+ * - largo: Largo del auto
+ * - direccion: Direccion del auto
+ * Returns:
+ * - bool
+ */
 bool Stack::contains(int id, int x, int y, int largo, int direccion)
 {
 
@@ -60,14 +106,28 @@ bool Stack::contains(int id, int x, int y, int largo, int direccion)
     return false;
 };
 
-// Funcion para reemplazar un auto en el vector
+/*
+ * Method: replace
+ * Description: Metodo para reemplazar un auto en el stack
+ * Parameters:
+ * - newCar: Nuevo auto
+ * Returns:
+ * - void
+ */
 void Stack::replace(Car *newCar)
 {
 
     this->stack[newCar->id - 1] = newCar;
 };
 
-// Funcion para buscar un auto por su id
+/*
+ * Method: searchById
+ * Description: Metodo para buscar un auto por su id
+ * Parameters:
+ * - id: Id del auto
+ * Returns:
+ * - Car: Auto
+ */
 Car *Stack::searchById(int id)
 {
     for (int i = 0; i <= this->top; i++)
@@ -79,4 +139,3 @@ Car *Stack::searchById(int id)
     }
     return NULL;
 };
-

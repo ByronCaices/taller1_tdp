@@ -2,7 +2,14 @@
 #include <string>
 #include "MyString.h"
 
-// Constructor de un stack
+/*
+ * Method: MyString
+ * Description: Constructor
+ * Parameters:
+ * - capacity: Capacidad del stack
+ * Returns:
+ * - Stack: Instancia de la clase Stack
+ */
 MyString::MyString(int capcity)
 {
     this->cap = capcity;
@@ -10,13 +17,27 @@ MyString::MyString(int capcity)
     this->stack = new std::string[capcity];
 }
 
-// Destructor de un stack
+/*
+ * Method: ~MyString
+ * Description: Destructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 MyString::~MyString()
 {
     delete[] this->stack;
 }
 
-// Función para agregar un string al stack
+/*
+ * Method: push
+ * Description: Metodo para agregar un string al stack
+ * Parameters:
+ * - string: String a agregar
+ * Returns:
+ * - void
+ */
 void MyString::push(const std::string &str)
 {
     if (this->top == this->cap - 1)
@@ -34,14 +55,28 @@ void MyString::push(const std::string &str)
     this->stack[this->top] = str;
 }
 
-// Función para saber si el stack está vacío
+/*
+ * Method: isEmpty
+ * Description: Metodo saber si el stack esta vacio
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 bool MyString::isEmpty()
 {
     return this->top == -1;
 }
 
-// Función para mostrar el stack
-void MyString::printVector()
+/*
+ * Method: printMyString
+ * Description: Imprime stack en consola
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
+void MyString::printMyString()
 {
     for (int i = 0; i <= this->top; i++)
     {
@@ -50,7 +85,14 @@ void MyString::printVector()
     std::cout << std::endl;
 }
 
-// Función para saber si una cadena está en el vector
+/*
+ * Method: contains
+ * Description: Metodo para saber si un string específico está en el vector
+ * Parameters:
+ * - string: String a buscar
+ * Returns:
+ * - bool
+ */
 bool MyString::contains(const std::string &str)
 {
     for (int i = 0; i <= this->top; i++)
@@ -63,7 +105,14 @@ bool MyString::contains(const std::string &str)
     return false;
 }
 
-// Función para obtener un string en una posición específica
+/*
+ * Method: get
+ * Description: Metodo para obtener un string en una posición específica
+ * Parameters:
+ * - index: Indice del string a obtener
+ * Returns:
+ * - string
+ */
 std::string MyString::get(int index)
 {
     if (index >= 0 && index <= this->top)

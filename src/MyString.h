@@ -3,34 +3,28 @@
 
 #include <string>
 
+/* 
+    * Clase MyString:
+    * Descripcion: Clase que representa un string
+    * string: String a agregar
+    * cap: Capacidad actual del vector
+    * top: Índice del último elemento en el vector
+*/
 class MyString
 {
-public:
-    // Constructor que inicializa el vector con una capacidad dada
-    MyString(int capacidad);
-
-    // Destructor que libera la memoria asignada al vector
-    ~MyString();
-
-    // Método para agregar un string al vector
-    void push(const std::string &str);
-
-    // Método para determinar si el vector está vacío
-    bool isEmpty();
-
-    // Método para imprimir todos los strings en el vector
-    void printVector();
-
-    // Método para verificar si un string específico está en el vector
-    bool contains(const std::string &str);
-
-    // Método para obtener un string en una posición específica
-    std::string get(int index);
-
 private:
-    std::string *stack; // Puntero al array dinámico que contiene los strings
-    int cap;            // Capacidad actual del vector
-    int top;            // Índice del último elemento en el vector
+    std::string *stack; 
+    int cap;            
+    int top;            
+
+public:
+    MyString(int capacidad);               // Constructor que inicializa el vector con una capacidad dada
+    ~MyString();                           // Destructor que libera la memoria asignada al vector
+    void push(const std::string &str);     // Método para agregar un string al vector
+    bool isEmpty();                        // Método para determinar si el vector está vacío
+    void printMyString();                  // Método para imprimir todos los strings en el vector
+    bool contains(const std::string &str); // Método para verificar si un string específico está en el vector
+    std::string get(int index);            // Método para obtener un string en una posición específica
 };
 
 #endif
