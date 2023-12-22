@@ -27,10 +27,10 @@ Car::Car(const Car &copia)
 }
 
 // Funcion para mover un auto
-Car *Car::mover(Operation *op, int **tablero, int **paredes)
+Car *Car::mover(Operation *op, int **board, int **walls)
 {
     Car *copia;
-    if (verificarMovimiento(tablero, op, paredes))
+    if (verificarMovimiento(board, op, walls))
     {
         copia = op->operar(this);
         return copia;
@@ -43,7 +43,7 @@ Car *Car::mover(Operation *op, int **tablero, int **paredes)
 }
 
 // Funcion para verificar si un auto puede moverse
-bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
+bool Car::verificarMovimiento(int **board, Operation *op, int **walls)
 {
     int llegada_x, llegada_y, inicio_x, inicio_y, pasosx, pasosy;
 
@@ -93,7 +93,7 @@ bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
         {
             for (int i = 0; i <= pasosx; i++)
             { // Se verifica que no haya autos en el camino
-                if ((tablero[llegada_y][llegada_x - i] != 0) || (paredes[llegada_y][llegada_x - i] == 1))
+                if ((board[llegada_y][llegada_x - i] != 0) || (walls[llegada_y][llegada_x - i] == 1))
                 { // Si hay un auto o una pared
                     return false;
                 }
@@ -103,7 +103,7 @@ bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
         {
             for (int i = 0; i <= pasosx; i++)
             { // Se verifica que no haya autos en el camino
-                if ((tablero[llegada_y][llegada_x + i] != 0) || (paredes[llegada_y][llegada_x + i] == 1))
+                if ((board[llegada_y][llegada_x + i] != 0) || (walls[llegada_y][llegada_x + i] == 1))
                 { // Si hay un auto o una pared
                     return false;
                 }
@@ -116,7 +116,7 @@ bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
         {
             for (int i = 0; i <= pasosy; i++)
             { // Se verifica que no haya autos en el camino
-                if ((tablero[llegada_y - i][llegada_x] != 0) || (paredes[llegada_y - i][llegada_x] == 1))
+                if ((board[llegada_y - i][llegada_x] != 0) || (walls[llegada_y - i][llegada_x] == 1))
                 { // Si hay un auto o una pared
                     return false;
                 }
@@ -126,7 +126,7 @@ bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
         {
             for (int i = 0; i <= pasosy; i++)
             { // Se verifica que no haya autos en el camino
-                if ((tablero[llegada_y + i][llegada_x] != 0) || (paredes[llegada_y + i][llegada_x] == 1))
+                if ((board[llegada_y + i][llegada_x] != 0) || (walls[llegada_y + i][llegada_x] == 1))
                 { // Si hay un auto o una pared
                     return false;
                 }
@@ -134,12 +134,12 @@ bool Car::verificarMovimiento(int **tablero, Operation *op, int **paredes)
         }
     }
 
-    if (paredes[llegada_y][llegada_x] == 1)
+    if (walls[llegada_y][llegada_x] == 1)
     { // Si hay una pared
         return false;
     }
 
-    if (tablero[llegada_y][llegada_x] == 0) // Si no hay un auto
+    if (board[llegada_y][llegada_x] == 0) // Si no hay un auto
         return true;
     else
         return false;

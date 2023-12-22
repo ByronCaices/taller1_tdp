@@ -1,6 +1,6 @@
 #pragma once
-#ifndef OPERACION_H
-#define OPERACION_H
+#ifndef OPERATION_H
+#define OPERATION_H
 
 #define VERTICAL 1
 #define HORIZONTAL 0

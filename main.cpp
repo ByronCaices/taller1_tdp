@@ -4,7 +4,7 @@
 #include <string>
 #include <ctime>
 #include "./src/Heap.h"
-#include "./src/Tablero.h"
+#include "./src/Board.h"
 #include "./src/State.h"
 
 using namespace std;
@@ -69,7 +69,7 @@ int main() {
     Stack autos = readFile("./testfiles/"+Archivoautos); // leemos los autos
 
     State* estado = new State(&autos, nullptr,0); // creamos el estado inicial
-    Tablero tablero(6); // creamos el tablero
+    Board tablero(6); // creamos el tablero
 
     tablero.setParedes(paredes("./testfiles/"+Archivoparedes)); // leemos las paredes
 

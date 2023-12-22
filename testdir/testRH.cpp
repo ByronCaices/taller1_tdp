@@ -3,7 +3,7 @@
 #include <sstream> 
 #include "../src/State.h"
 #include "../src/Car.h"
-#include "../src/Tablero.h"
+#include "../src/Board.h"
 
 using namespace std;
 
@@ -72,7 +72,7 @@ int main(){
     //creamos el estado inicial
     State* inicial = new State(&autos, nullptr, 0);
     //creamos el tablero
-    Tablero tablero(6);
+    Board tablero(6);
     //llenamos las paredes del tablero
     tablero.setParedes(walls);
 
