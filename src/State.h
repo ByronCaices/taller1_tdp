@@ -2,13 +2,13 @@
 #define STATE_H
 #include <iostream>
 #include "Stack.h"
-#include "Operacion.h"
+#include "Operation.h"
 
 class State
 {
 public:
-    State(Stack *cars, Operacion *op, State *padre, Car *movingCar); // Constructor de un estado
-    State(Stack *cars, Operacion *op, int idCar);                        // Constructor de un estado
+    State(Stack *cars, Operation *op, State *padre, Car *movingCar); // Constructor de un estado
+    State(Stack *cars, Operation *op, int idCar);                        // Constructor de un estado
     ~State();                                                              // Destructor de un estado
     void mostrarEstado();                                                  // Funcion para mostrar un estado
     bool esSolucion();                                                     // Funcion para verificar si un estado es solucion
@@ -19,7 +19,7 @@ public:
 
     // private:
     Stack *cars;    // Vector de autos
-    Operacion *op;  // Operacion que se realizo para llegar a este estado
+    Operation *op;  // Operacion que se realizo para llegar a este estado
     State *padre;   // Padre de este estado
     Car *movingCar; // Auto que se esta moviendo en este estado
     int heuristica; // Costo acumulado de este estado

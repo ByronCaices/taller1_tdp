@@ -3,7 +3,7 @@
 #define CAR_H
 
 #include <iostream>
-#include "Operacion.h"
+#include "Operation.h"
 
 #define VERTICAL 1
 #define HORIZONTAL 0
@@ -15,8 +15,8 @@ public:
     Car(int id, int col, int fila, int largo, int dir);                    // Constructor de un auto
     Car(const Car &copia);                                                 // Constructor de copia de un auto
     ~Car();                                                                // Destructor de un auto
-    Car *mover(Operacion *op, int **tablero, int **paredes);               // Funcion para mover un auto
-    bool verificarMovimiento(int **tablero, Operacion *op, int **paredes); // Funcion para verificar si un auto puede moverse
+    Car *mover(Operation *op, int **tablero, int **paredes);               // Funcion para mover un auto
+    bool verificarMovimiento(int **tablero, Operation *op, int **paredes); // Funcion para verificar si un auto puede moverse
                                                                            // private:
     int id;                                                                // Identificador del auto
     int columna;                                                           // Posicion en x del auto

@@ -1,5 +1,5 @@
 #include "../src/Car.h"
-#include "../src/Operacion.h"
+#include "../src/Operation.h"
 #include <iostream>
 
 int main(){
@@ -16,7 +16,7 @@ int main(){
     " ,Direccion: " << Auto1->dir << std::endl;
  
     //creamos la operacion de mover el auto rojo hacia la derecha (sumarle 1)
-    Operacion *op = new Operacion(0,1);
+    Operation *op = new Operation(0,1);
 
     //Realizamos la operacion
     Car *AutoRojoMovido = op->operar(Auto1);
@@ -42,7 +42,7 @@ int main(){
     " ,Direccion: " << Auto2->dir << std::endl;
 
     //creamos la operacion de mover el auto cualquiera hacia arriba(restarle 1)
-    Operacion *op2 = new Operacion(0,-1);
+    Operation *op2 = new Operation(0,-1);
 
     //Realizamos la operacion
     Car *AutoCualquieraMovido = op2->operar(Auto2);

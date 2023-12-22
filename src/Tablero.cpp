@@ -30,14 +30,14 @@ Tablero::Tablero(int Largo)
     }
 
     // Creamos las operaciones disponibles para mover los autos
-    this->operaciones[0] = Operacion(0, 1);
-    this->operaciones[1] = Operacion(0, -1);
-    this->operaciones[2] = Operacion (0,2);
-    this->operaciones[3] = Operacion (0,-2);
-    this->operaciones[4] = Operacion (0,3);
-    this->operaciones[5] = Operacion (0,-3);
-    this->operaciones[6] = Operacion (0,4);
-    this->operaciones[7] = Operacion (0,-4);
+    this->operaciones[0] = Operation(0, 1);
+    this->operaciones[1] = Operation(0, -1);
+    this->operaciones[2] = Operation (0,2);
+    this->operaciones[3] = Operation (0,-2);
+    this->operaciones[4] = Operation (0,3);
+    this->operaciones[5] = Operation (0,-3);
+    this->operaciones[6] = Operation (0,4);
+    this->operaciones[7] = Operation (0,-4);
 
 }
 

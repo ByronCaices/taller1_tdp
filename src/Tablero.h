@@ -2,7 +2,7 @@
 #define TABLERO_H
 
 #include <iostream>
-#include "Operacion.h"
+#include "Operation.h"
 #include "Stack.h"
 #include "State.h"
 
@@ -23,7 +23,7 @@ class Tablero{
         int Largo; // Largo del tablero
         int** tablero; // Tablero
         int** paredes; // Paredes
-        Operacion operaciones[7]; // Operaciones   
+        Operation operaciones[7]; // Operaciones   
 };
 
 #endif

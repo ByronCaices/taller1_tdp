@@ -2,7 +2,7 @@
 #include <sstream>
 
 // Contructor de un estado
-State::State(Stack *cars, Operacion *op, State *padre, Car *movingCar)
+State::State(Stack *cars, Operation *op, State *padre, Car *movingCar)
 {
     this->cars = cars;
     this->op = op;
@@ -12,7 +12,7 @@ State::State(Stack *cars, Operacion *op, State *padre, Car *movingCar)
 };
 
 // Contructor de un estado
-State::State(Stack *cars, Operacion *op, int idCar)
+State::State(Stack *cars, Operation *op, int idCar)
 {
     this->cars = cars;
     this->op = op;
@@ -48,7 +48,6 @@ bool State::esSolucion()
     }
 };
 
-
 // Funcion para convertir un estado a string
 std::string State::toString() const
 {
@@ -79,24 +78,24 @@ void State::mostrarsolucion()
     {
         if (movingCar->dir == HORIZONTAL)
         {
-            if (op->paso > 0)
+            if (op->step > 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve a la derecha, " << abs(op->paso) << " Pasos" << std::endl;
+                std::cout << "El auto " << movingCar->id << " se mueve a la derecha, " << abs(op->step) << " Pasos" << std::endl;
             }
-            else if (op->paso < 0)
+            else if (op->step < 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve a la izquierda " << abs(op->paso) << " Pasos" << std::endl;
+                std::cout << "El auto " << movingCar->id << " se mueve a la izquierda " << abs(op->step) << " Pasos" << std::endl;
             }
         }
         else if (movingCar->dir == VERTICAL)
         {
-            if (op->paso > 0)
+            if (op->step > 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve hacia abajo " << abs(op->paso) << " Pasos" << std::endl;
+                std::cout << "El auto " << movingCar->id << " se mueve hacia abajo " << abs(op->step) << " Pasos" << std::endl;
             }
-            else if (op->paso < 0)
+            else if (op->step < 0)
             {
-                std::cout << "El auto " << movingCar->id << " se mueve hacia arriba " << abs(op->paso) << " Pasos" << std::endl;
+                std::cout << "El auto " << movingCar->id << " se mueve hacia arriba " << abs(op->step) << " Pasos" << std::endl;
             }
         }
         else
