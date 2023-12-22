@@ -44,7 +44,7 @@ void Stack::printVector()
 {
     for (int i = 0; i <= this->top; i++)
     {
-        std::cout << this->stack[i]->id << " " << this->stack[i]->posX << " " << this->stack[i]->posY << " " << this->stack[i]->Direccion << " " << this->stack[i]->Largo << std::endl;
+        std::cout << this->stack[i]->id << " " << this->stack[i]->columna << " " << this->stack[i]->fila << " " << this->stack[i]->dir << " " << this->stack[i]->largo << std::endl;
     }
     std::cout << std::endl;
 };
@@ -53,7 +53,7 @@ void Stack::printVector()
 bool Stack::contains(int id, int x, int y, int largo, int direccion)
 {
 
-    if (this->stack[id - 1]->posX == x && this->stack[id - 1]->posY == y && this->stack[id - 1]->Largo == largo && this->stack[id - 1]->Direccion == direccion)
+    if (this->stack[id - 1]->columna == x && this->stack[id - 1]->fila == y && this->stack[id - 1]->largo == largo && this->stack[id - 1]->dir == direccion)
     {
         return true;
     }

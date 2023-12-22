@@ -10,10 +10,10 @@ int main(){
 
     std::cout << "Auto Rojo "
     << "Id: " << Auto1->id << 
-    " ,PosX: " << Auto1->posX <<
-    " ,PosY: " << Auto1->posY << 
-    " ,Largo: " << Auto1->Largo << 
-    " ,Direccion: " << Auto1->Direccion << std::endl;
+    " ,PosX: " << Auto1->columna <<
+    " ,PosY: " << Auto1->fila << 
+    " ,Largo: " << Auto1->largo << 
+    " ,Direccion: " << Auto1->dir << std::endl;
 
     //creamos otro auto cualquiera
 
@@ -24,10 +24,10 @@ int main(){
 
     std::cout << "Auto cualquiera "
     << "Id: " << Auto2->id <<
-    " ,PosX: " << Auto2->posX <<
-    " ,PosY: " << Auto2->posY <<
-    " ,Largo: " << Auto2->Largo <<
-    " ,Direccion: " << Auto2->Direccion << std::endl;
+    " ,PosX: " << Auto2->columna <<
+    " ,PosY: " << Auto2->fila <<
+    " ,Largo: " << Auto2->largo <<
+    " ,Direccion: " << Auto2->dir << std::endl;
 
 
 }

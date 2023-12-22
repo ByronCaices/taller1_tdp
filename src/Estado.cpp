@@ -10,7 +10,6 @@ Estado::Estado(Stack *autos, Operacion *Op, Estado *padre, Car *automoviendose)
     this->padre = padre;
     this->automoviendose = automoviendose;
     this->heuristica = 0;
-    //this->heuristica = CalcularHeuristica();
 };
 
 //Contructor de un estado
@@ -68,7 +67,7 @@ std::string Estado::toString() const
     for (int i = 0; i <= this->autos->top; i++)
     {
         const Car *auto_ = this->autos->stack[i];
-        ss << auto_->id << " " << auto_->posX << " " << auto_->posY << " " << auto_->Direccion << " " << auto_->Largo << std::endl;
+        ss << auto_->id << " " << auto_->columna << " " << auto_->fila << " " << auto_->dir << " " << auto_->largo << std::endl;
     }
     return ss.str();
 };
@@ -89,7 +88,7 @@ void Estado::mostrarsolucion()
     }
     if (this->Op != nullptr)
     {
-        if (automoviendose->Direccion == HORIZONTAL)
+        if (automoviendose->dir == HORIZONTAL)
         {
             if (Op->paso > 0)
             {
@@ -100,7 +99,7 @@ void Estado::mostrarsolucion()
                 std::cout << "El auto " << automoviendose->id << " se mueve a la izquierda " << abs(Op->paso)<< " Pasos"<<std::endl;
             }
         }
-        else if (automoviendose->Direccion == VERTICAL)
+        else if (automoviendose->dir == VERTICAL)
         {
             if (Op->paso > 0)
             {

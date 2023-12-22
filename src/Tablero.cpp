@@ -106,7 +106,7 @@ Estado *Tablero::resolver(Estado *inicial)
                 
                 if (nuevoAuto != nullptr) // si el auto se pudo mover
                 {
-                    if (nuevoAuto->posX < 0 || nuevoAuto->posX > 5 || nuevoAuto->posY < 0 || nuevoAuto->posY > 5)  // verificacion adicional de que el auto no se salga del tablero
+                    if (nuevoAuto->columna < 0 || nuevoAuto->columna > 5 || nuevoAuto->fila < 0 || nuevoAuto->fila > 5)  // verificacion adicional de que el auto no se salga del tablero
                     {
                         continue; // si el auto se sale del tablero, no se hace nada
                     }
@@ -158,10 +158,10 @@ void Tablero::llenarTablero(Stack *autos)
     for (int i = 0; i <= autos->top; i++) // llenamos el tablero con los autos del Vector de autos
     {
         Car *auto_ = autos->stack[i];
-        int x = auto_->posX;
-        int y = auto_->posY;
-        int largo = auto_->Largo; 
-        int direccion = auto_->Direccion;
+        int x = auto_->columna;
+        int y = auto_->fila;
+        int largo = auto_->largo; 
+        int direccion = auto_->dir;
 
         if (direccion == HORIZONTAL)
         {

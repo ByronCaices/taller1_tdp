@@ -10,10 +10,10 @@ int main(){
 
     std::cout << "Auto Rojo antes de la operacion:  "
     << "Id: " << Auto1->id << 
-    " ,PosX: " << Auto1->posX <<
-    " ,PosY: " << Auto1->posY << 
-    " ,Largo: " << Auto1->Largo << 
-    " ,Direccion: " << Auto1->Direccion << std::endl;
+    " ,PosX: " << Auto1->columna <<
+    " ,PosY: " << Auto1->fila << 
+    " ,Largo: " << Auto1->largo << 
+    " ,Direccion: " << Auto1->dir << std::endl;
  
     //creamos la operacion de mover el auto rojo hacia la derecha (sumarle 1)
     Operacion *op = new Operacion(0,1);
@@ -24,10 +24,10 @@ int main(){
     //imprimimos el auto rojo despues de la operacion
     std::cout << "Auto Rojo despues de la operacion: "
     << "Id: " << AutoRojoMovido->id <<
-    " ,PosX: " << AutoRojoMovido->posX <<
-    " ,PosY: " << AutoRojoMovido->posY <<
-    " ,Largo: " << AutoRojoMovido->Largo <<
-    " ,Direccion: " << AutoRojoMovido->Direccion << std::endl;
+    " ,PosX: " << AutoRojoMovido->columna <<
+    " ,PosY: " << AutoRojoMovido->fila <<
+    " ,Largo: " << AutoRojoMovido->largo <<
+    " ,Direccion: " << AutoRojoMovido->dir << std::endl;
 
 
     //creamos un auto cualquiera en vertical
@@ -36,10 +36,10 @@ int main(){
     //imprimimos el auto cualquiera antes de la operacion
     std::cout << "Auto cualquiera antes de la operacion:  "
     << "Id: " << Auto2->id <<
-    " ,PosX: " << Auto2->posX <<
-    " ,PosY: " << Auto2->posY <<
-    " ,Largo: " << Auto2->Largo <<
-    " ,Direccion: " << Auto2->Direccion << std::endl;
+    " ,PosX: " << Auto2->columna <<
+    " ,PosY: " << Auto2->fila <<
+    " ,Largo: " << Auto2->largo <<
+    " ,Direccion: " << Auto2->dir << std::endl;
 
     //creamos la operacion de mover el auto cualquiera hacia arriba(restarle 1)
     Operacion *op2 = new Operacion(0,-1);
@@ -50,10 +50,10 @@ int main(){
     //imprimimos el auto cualquiera despues de la operacion
     std::cout << "Auto cualquiera despues de la operacion:  "
     << "Id: " << AutoCualquieraMovido->id <<
-    " ,PosX: " << AutoCualquieraMovido->posX <<
-    " ,PosY: " << AutoCualquieraMovido->posY <<
-    " ,Largo: " << AutoCualquieraMovido->Largo <<
-    " ,Direccion: " << AutoCualquieraMovido->Direccion << std::endl;
+    " ,PosX: " << AutoCualquieraMovido->columna <<
+    " ,PosY: " << AutoCualquieraMovido->fila <<
+    " ,Largo: " << AutoCualquieraMovido->largo <<
+    " ,Direccion: " << AutoCualquieraMovido->dir << std::endl;
 
 
     return 0;

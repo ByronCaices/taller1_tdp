@@ -1,14 +1,14 @@
-#include "Car.h"
 #include "Operacion.h"
+#include "Car.h"
 
 // Contructor de un auto
-Car::Car(int id, int posX, int posY, int Largo, int Direccion)
+Car::Car(int id, int col, int fila, int largo, int dir)
 {
     this->id = id;
-    this->posX = posX;
-    this->posY = posY;
-    this->Direccion = Direccion;
-    this->Largo = Largo;
+    this->columna = col;
+    this->fila = fila;
+    this->dir = dir;
+    this->largo = largo;
 }
 
 // Destructor de un auto
@@ -20,10 +20,10 @@ Car::~Car()
 Car::Car(const Car &copia)
 {
     this->id = copia.id;
-    this->posX = copia.posX;
-    this->posY = copia.posY;
-    this->Direccion = copia.Direccion;
-    this->Largo = copia.Largo;
+    this->columna = copia.columna;
+    this->fila = copia.fila;
+    this->dir = copia.dir;
+    this->largo = copia.largo;
 }
 
 // Funcion para mover un auto
@@ -48,34 +48,34 @@ bool Car::verificarMovimiento(int **tablero, Operacion *op, int **paredes)
     int llegada_x, llegada_y, inicio_x, inicio_y, pasosx, pasosy;
 
     // Se calcula la posicion de llegada
-    if (this->Direccion == HORIZONTAL)
+    if (this->dir == HORIZONTAL)
     { // Si el auto esta en horizontal
         if (op->paso > 0)
         {
-            inicio_x = this->posX + this->Largo;
-            llegada_x = this->posX + this->Largo - 1 + op->paso;
-            llegada_y = this->posY;
+            inicio_x = this->columna + this->largo;
+            llegada_x = this->columna + this->largo - 1 + op->paso;
+            llegada_y = this->fila;
         }
         else if (op->paso < 0)
         {
-            inicio_x = this->posX - 1;
-            llegada_x = this->posX + op->paso;
-            llegada_y = this->posY;
+            inicio_x = this->columna - 1;
+            llegada_x = this->columna + op->paso;
+            llegada_y = this->fila;
         }
     }
-    else if (this->Direccion == VERTICAL)
+    else if (this->dir == VERTICAL)
     { // Si el auto esta en vertical
         if (op->paso > 0)
         {
-            inicio_y = this->posY + this->Largo;
-            llegada_x = this->posX;
-            llegada_y = this->posY + this->Largo - 1 + op->paso;
+            inicio_y = this->fila + this->largo;
+            llegada_x = this->columna;
+            llegada_y = this->fila + this->largo - 1 + op->paso;
         }
         else if (op->paso < 0)
         {
-            inicio_y = this->posY - 1;
-            llegada_x = this->posX;
-            llegada_y = this->posY + op->paso;
+            inicio_y = this->fila - 1;
+            llegada_x = this->columna;
+            llegada_y = this->fila + op->paso;
         }
     }
 
@@ -87,7 +87,7 @@ bool Car::verificarMovimiento(int **tablero, Operacion *op, int **paredes)
     pasosx = abs(llegada_x - inicio_x); // Se calcula la cantidad de pasos que se mueve
     pasosy = abs(llegada_y - inicio_y); // Se calcula la cantidad de pasos que se mueve
 
-    if (this->Direccion == HORIZONTAL)
+    if (this->dir == HORIZONTAL)
     { // Si el auto esta en horizontal
         if (op->paso > 0)
         {
@@ -110,7 +110,7 @@ bool Car::verificarMovimiento(int **tablero, Operacion *op, int **paredes)
             }
         }
     }
-    else if (this->Direccion == VERTICAL)
+    else if (this->dir == VERTICAL)
     { // Si el auto esta en vertical
         if (op->paso > 0)
         {

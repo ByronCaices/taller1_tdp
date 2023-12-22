@@ -1,26 +1,28 @@
 #pragma once
-#ifndef AUTO_H
-#define AUTO_H
-#include "Operacion.h"
+#ifndef CAR_H
+#define CAR_H
+
 #include <iostream>
-#define HORIZONTAL 0
+#include "Operacion.h"
+
 #define VERTICAL 1
+#define HORIZONTAL 0
 
 class Car
 {
 
 public:
-    Car(int id, int posX, int posY, int Largo, int Direccion);             // Constructor de un auto
+    Car(int id, int col, int fila, int largo, int dir);                    // Constructor de un auto
     Car(const Car &copia);                                                 // Constructor de copia de un auto
     ~Car();                                                                // Destructor de un auto
     Car *mover(Operacion *op, int **tablero, int **paredes);               // Funcion para mover un auto
     bool verificarMovimiento(int **tablero, Operacion *op, int **paredes); // Funcion para verificar si un auto puede moverse
                                                                            // private:
     int id;                                                                // Identificador del auto
-    int posX;                                                              // Posicion en x del auto
-    int posY;                                                              // Posicion en y del auto
-    int Largo;                                                             // Largo del auto
-    int Direccion;                                                         // Direccion del auto
+    int columna;                                                           // Posicion en x del auto
+    int fila;                                                              // Posicion en y del auto
+    int largo;                                                             // Largo del auto
+    int dir;                                                               // Direccion del auto
 };
 
 #endif
