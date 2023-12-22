@@ -1,4 +1,4 @@
-#include "../src/Estado.h"
+#include "../src/State.h"
 #include "../src/Car.h"
 #include "../src/Stack.h"
 
@@ -25,7 +25,7 @@ int main(){
 
     //creamos el estado
 
-    Estado *estado = new Estado(vector,nullptr,nullptr,nullptr); // creamos un estado con el vector de autos creado anteriormente
+    State *estado = new State(vector,nullptr,nullptr,nullptr); // creamos un estado con el vector de autos creado anteriormente
     estado->heuristica = 5; // le asignamos una heuristica
 
     estado->mostrarEstado(); // imprimimos el estado

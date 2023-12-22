@@ -1,7 +1,7 @@
 #include <fstream> 
 #include <string> 
 #include <sstream> 
-#include "../src/Estado.h"
+#include "../src/State.h"
 #include "../src/Car.h"
 #include "../src/Tablero.h"
 
@@ -70,7 +70,7 @@ int main(){
     int** walls = paredes("walls1.txt");
 
     //creamos el estado inicial
-    Estado* inicial = new Estado(&autos, nullptr, 0);
+    State* inicial = new State(&autos, nullptr, 0);
     //creamos el tablero
     Tablero tablero(6);
     //llenamos las paredes del tablero

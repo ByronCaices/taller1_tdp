@@ -17,27 +17,27 @@ int main()
 
     //Creamos el estado inicial
 
-    Estado *inicial = new Estado(autos, nullptr, 0);
+    State *inicial = new State(autos, nullptr, 0);
     inicial->mostrarEstado();
     inicial->heuristica = 4; //ingresamos cualquier valor a su heuristica
 
     //Creamos el estado 1
-    Estado *estado1 = new Estado(autos, nullptr, 0);
+    State *estado1 = new State(autos, nullptr, 0);
     estado1->mostrarEstado();
     estado1->heuristica = 8;
 
     //Creamos el estado 2
-    Estado *estado2 = new Estado(autos, nullptr, 0);
+    State *estado2 = new State(autos, nullptr, 0);
     estado2->mostrarEstado();
     estado2->heuristica = 5;
 
     //Creamos el estado 3
-    Estado *estado3 = new Estado(autos, nullptr, 0);
+    State *estado3 = new State(autos, nullptr, 0);
     estado3->mostrarEstado();
     estado3->heuristica = 32;
 
     //Creamos el estado 4
-    Estado *estado4 = new Estado(autos, nullptr, 0);
+    State *estado4 = new State(autos, nullptr, 0);
     estado4->mostrarEstado();
     estado4->heuristica = 3;
 
@@ -57,7 +57,7 @@ int main()
     cout << "Cola de prioridad" << endl;
     while (!colaPrioridad.isEmpty())
     {
-        Estado *estado = colaPrioridad.pop();
+        State *estado = colaPrioridad.pop();
         cout << estado->heuristica << endl;
     }
     

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "../src/Estado.h"
+#include "../src/State.h"
 #include "../src/Stack.h"
 #include "../src/MyString.h"
 
@@ -26,11 +26,11 @@ int main(){
 
     //Creamos algunos estados para agregar al vector
 
-    Estado *estado1 = new Estado(autos, nullptr, nullptr, nullptr);
+    State *estado1 = new State(autos, nullptr, nullptr, nullptr);
 
-    Estado *estado2 = new Estado(autos, nullptr, nullptr, nullptr);
+    State *estado2 = new State(autos, nullptr, nullptr, nullptr);
 
-    Estado *estado3 = new Estado(autos, nullptr, nullptr, nullptr);
+    State *estado3 = new State(autos, nullptr, nullptr, nullptr);
 
     //Los agregamos al vector
 

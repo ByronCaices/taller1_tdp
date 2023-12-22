@@ -4,7 +4,7 @@
 Heap::Heap(int capacity) {
     this->capacity = capacity;
     this->size = 0;
-    this->heap = new Estado*[capacity];
+    this->heap = new State*[capacity];
 }
 
 //Destructor de un heap
@@ -17,17 +17,17 @@ Heap::~Heap() {
 
 // Funcion para intercambiar dos estados
 void Heap::swap(int i, int j) {
-    Estado *temp = this->heap[i];
+    State *temp = this->heap[i];
     this->heap[i] = this->heap[j];
     this->heap[j] = temp;
 }
 
 // Funcion para obtener el estado con menor costo acumulado y heuristica
-Estado * Heap::pop() {
+State * Heap::pop() {
     if (isEmpty()) { // Ojo retorna nulo si esta vacio
         return nullptr;
     }
-    Estado *state = this->heap[0]; // tomo la raiz
+    State *state = this->heap[0]; // tomo la raiz
     this->heap[0] = this->heap[this->size-1]; // pongo el ultimo en la raiz
     this->size--; // reduzco el size
     this->heapify(0); // burbujea hacia abajo intercambiando con el menor de los hijos
@@ -52,9 +52,9 @@ void Heap::heapify(int index) {
 }
 
 // Funcion para insertar un estado en el heap
-void Heap::push(Estado *state) {
+void Heap::push(State *state) {
     if (this->size == this->capacity) {
-        Estado **temp = new Estado*[this->capacity*2];
+        State **temp = new State*[this->capacity*2];
         for (int i=0; i<this->size; i++) {
             temp[i] = this->heap[i];
         }
@@ -82,7 +82,7 @@ bool Heap::isEmpty() {
 }   
 
 // Funcion para verificar si el heap contiene un estado
-bool Heap::Contains(Estado *state){
+bool Heap::Contains(State *state){
     for (int i = 0; i < this->size; i++)
     {
         if (this->heap[i]->toString() == state->toString())

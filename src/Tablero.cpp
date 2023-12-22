@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "Tablero.h"
 #include "Car.h"
-#include "Estado.h"
 #include "Heap.h"
+#include "State.h"
 #include "Stack.h"
 #include "MyString.h"
 using namespace std;
@@ -52,7 +52,7 @@ Tablero::~Tablero()
 }
 
 // Funcion para resolver el problema
-Estado *Tablero::resolver(Estado *inicial)
+State *Tablero::resolver(State *inicial)
 {
 
     inicial->heuristica = 0; // inicializamos el costo acumulado
@@ -71,7 +71,7 @@ Estado *Tablero::resolver(Estado *inicial)
     MyString *estadosVisitados = new MyString(1000); // creamos un Vector de strings para guardar los estados visitados
     while (!colaPrioridad.isEmpty()) // mientras la cola de prioridad no este vacia
     {       
-        Estado *actual = colaPrioridad.pop();   // sacamos el estado con menor costo acumulado (dado la heuristica)
+        State *actual = colaPrioridad.pop();   // sacamos el estado con menor costo acumulado (dado la heuristica)
 
         estadosVisitados->push(actual->toString()); // agregamos el estado a los estados visitados
 
@@ -85,7 +85,7 @@ Estado *Tablero::resolver(Estado *inicial)
             this->MostarTablero(); // imprimimos el tablero
             cout << "Movimientos realizados: " << actual->heuristica << endl;
             actual->mostrarsolucion(); // imprimimos la solucion
-            Estado *aux = new Estado(*actual);
+            State *aux = new State(*actual);
             return aux;
         }
 
@@ -115,7 +115,7 @@ Estado *Tablero::resolver(Estado *inicial)
                         Stack *autosCopia = copiarVectorProfundamente(autos); // copiamos el Vector de autos
                         autosCopia->remplazar(nuevoAuto); // remplazamos el auto en el Vector de autos
                         
-                        Estado *nuevoEstado = new Estado(autosCopia, &this->operaciones[j], actual, nuevoAuto); // creamos un nuevo estado con el Vector de autos copiado
+                        State *nuevoEstado = new State(autosCopia, &this->operaciones[j], actual, nuevoAuto); // creamos un nuevo estado con el Vector de autos copiado
                         if(colaPrioridad.Contains(nuevoEstado) || estadosVisitados->contains(nuevoEstado->toString())){ // si la cola de prioridad ya contiene el estado (si este intenta meter un estado que ya esta en la cola, siempre será peor ya que tiene mas movimientos que el que ya existe dentro de esta)                           
                             continue; // no se hace nada
                         }
