@@ -12,7 +12,14 @@
 
 using namespace std;
 
-// Contructor de un tablero
+/*
+ * Method: Board
+ * Description: Constructor
+ * Parameters:
+ * - int length: Largo del tablero
+ * Returns:
+ * - Board: Tablero
+ */
 Board::Board(int length)
 {
     this->size = length;
@@ -40,7 +47,14 @@ Board::Board(int length)
     this->ops[7] = Operation(0, -4);
 }
 
-// Destructor de un tablero
+/*
+ * Method: ~Board
+ * Description: Destructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 Board::~Board()
 {
     for (int i = 0; i < this->size; ++i)
@@ -50,30 +64,48 @@ Board::~Board()
     delete[] this->board;
 }
 
-// Funcion para resolver el problema
+/*
+    * Method: astar
+    * Description: Funcion para resolver el problema con el algoritmo A*. El metodo recibe un estado inicial y devuelve un estado final
+    mientras la cola de prioridad no este vacia, se saca el estado con menor costo acumulado (dado la heuristica) y se agregan los estados
+    hijos a la cola de prioridad. Si el estado actual es solucion, se devuelve este estado. Si la cola de prioridad se vacia y no se encontro
+    solucion, se devuelve nullptr (no se encontro solucion)
+    * Parameters:
+    * - State *inicial: Estado inicial
+    * Returns:
+    * - State: Estado final
+*/
 State *Board::astar(State *inicial)
 {
 
-    inicial->heuristica = 0;     // inicializamos el costo acumulado
-    Heap priorityQueue(1000);    // creamos la cola de prioridad
-    priorityQueue.push(inicial); // agregamos el estado inicial a la cola de prioridad
-
-    this->fillBoard(inicial->getCars()); // llenamos el tablero con los autos del estado inicial
+    inicial->heuristica = 0;
+    Heap priorityQueue(1000);
+    priorityQueue.push(inicial);
+    
+    // llenamos el tablero con los autos del estado inicial
+    this->fillBoard(inicial->getCars()); 
     cout << "Estado Inicial" << endl;
-    inicial->getCars()->printStack(); // imprimimos el Vector de autos del estado inicial
-    cout << "Tablero Inicial" << endl;
-    this->printBoard(); // imprimimos el tablero
-    cout << "Paredes" << endl;
-    this->printWalls(); // imprimimos las paredes
+    
+    // imprimimos el Vector de autos del estado inicial
+    inicial->getCars()->printStack(); 
 
-    MyString *visitedStates = new MyString(1000); // creamos un Vector de strings para guardar los estados visitados
-    while (!priorityQueue.isEmpty())              // mientras la cola de prioridad no este vacia
+    // imprimimos el tablero y paredes
+    cout << "Tablero Inicial" << endl;
+    this->printBoard(); 
+    cout << "Paredes" << endl;
+    this->printWalls(); 
+    
+    // creamos un string para guardar los estados visitados como string
+    MyString *visitedStates = new MyString(1000); 
+
+    while (!priorityQueue.isEmpty())            
     {
-        State *actual = priorityQueue.pop(); // sacamos el estado con menor costo acumulado (dado la heuristica)
+        State *actual = priorityQueue.pop(); // saco el estado con menor costo 
 
         visitedStates->push(actual->toString()); // agregamos el estado a los estados visitados
 
         this->fillBoard(actual->getCars()); // llenamos el tablero con los autos del estado actual
+
         if (actual->isSolution())           // si el estado actual es solucion
         {
             cout << "Solucion encontrada" << endl;
@@ -92,9 +124,9 @@ State *Board::astar(State *inicial)
         for (int i = 0; i <= autos->top; i++) // por cada auto en el Vector de autos
         {
 
-            Car *clonedCar = autos->stack[i]; // obtenemos el auto
+            Car *clonedCar = autos->stack[i]; 
 
-            for (int j = 0; j < 8; j++) // por cada operacion
+            for (int j = 0; j < 8; j++) 
             {
                 // Copiar el Vector de autos
 
@@ -109,12 +141,13 @@ State *Board::astar(State *inicial)
                     else
                     {
                         Stack *carsCopy = copyStack(autos); // copiamos el Vector de autos
-                        carsCopy->replace(newCar);          // remplazamos el auto en el Vector de autos
+                        carsCopy->replace(newCar);          // reemplazamos el auto en el Vector de autos
 
                         State *newState = new State(carsCopy, &this->ops[j], actual, newCar); // creamos un nuevo estado con el Vector de autos copiado
+                        
                         if (priorityQueue.contains(newState) || visitedStates->contains(newState->toString()))
-                        {             // si la cola de prioridad ya contiene el estado (si este intenta meter un estado que ya esta en la cola, siempre será peor ya que tiene mas movimientos que el que ya existe dentro de esta)
-                            continue; // no se hace nada
+                        {             // si la cola de prioridad ya contiene el estado 
+                            continue; // se continua
                         }
                         newState->heuristica = actual->heuristica + 1; // aumentamos el costo acumulado
                         priorityQueue.push(newState);                  // agregamos el nuevo estado a la cola de prioridad
@@ -127,7 +160,14 @@ State *Board::astar(State *inicial)
     return nullptr;
 };
 
-// Funcion para copiar un Vector de autos
+/*
+ * Method: copyStack
+ * Description: metodo para copiar un Vector de autos
+ * Parameters:
+ * - Stack *original: Vector de autos a copiar
+ * Returns:
+ * - Stack: Vector de autos copiado
+ */
 Stack *Board::copyStack(Stack *original) // copia el Vector de autos
 {
     Stack *stackCopy = new Stack(original->cap);
@@ -140,7 +180,14 @@ Stack *Board::copyStack(Stack *original) // copia el Vector de autos
     return stackCopy;
 }
 
-// Funcion para llenar el tablero con los autos del Vector de autos
+/*
+ * Method: fillBoard
+ * Description: metodo para llenar el tablero con los autos del stack de autos
+ * Parameters:
+ * - Stack *autos: Vector de autos
+ * Returns:
+ * - void
+ */
 void Board::fillBoard(Stack *autos)
 {
 
@@ -177,7 +224,14 @@ void Board::fillBoard(Stack *autos)
     }
 }
 
-// Funcion para vaciar el tablero
+/*
+ * Method: emptyBoard
+ * Description: Metodo para vaciar el tablero
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void Board::emptyBoard()
 {
     for (int i = 0; i < this->size; i++) // llenamos el tablero con ceros
@@ -189,7 +243,14 @@ void Board::emptyBoard()
     }
 }
 
-// Funcion para mostrar el tablero
+/*
+ * Method:  printBoard
+ * Description: Metodo para mostrar el tablero
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void Board::printBoard()
 {
     for (int i = 0; i < this->size; i++)
@@ -203,13 +264,27 @@ void Board::printBoard()
     cout << endl;
 }
 
-// Funcion para setear las paredes del tablero
+/*
+ * Method: setWalls
+ * Description: Metodo para setear las paredes del tablero
+ * Parameters:
+ * - Matriz paredes: Puntero a un puntero de enteros que representa las paredes
+ * Returns:
+ * - void
+ */
 void Board::setWalls(int **paredes)
 {
     this->walls = paredes;
 }
 
-// Funcion para mostrar las paredes del tablero
+/*
+ * Method: printWalls
+ * Description: Metodo para mostrar las paredes del tablero
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void Board::printWalls()
 {
     for (int i = 0; i < this->size; i++)
