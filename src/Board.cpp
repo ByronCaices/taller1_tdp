@@ -112,7 +112,7 @@ State *Board::astar(State *inicial)
                         carsCopy->replace(newCar);          // remplazamos el auto en el Vector de autos
 
                         State *newState = new State(carsCopy, &this->ops[j], actual, newCar); // creamos un nuevo estado con el Vector de autos copiado
-                        if (priorityQueue.Contains(newState) || visitedStates->contains(newState->toString()))
+                        if (priorityQueue.contains(newState) || visitedStates->contains(newState->toString()))
                         {             // si la cola de prioridad ya contiene el estado (si este intenta meter un estado que ya esta en la cola, siempre será peor ya que tiene mas movimientos que el que ya existe dentro de esta)
                             continue; // no se hace nada
                         }

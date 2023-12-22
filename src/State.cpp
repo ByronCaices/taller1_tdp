@@ -1,7 +1,17 @@
 #include "State.h"
 #include <sstream>
 
-// Contructor de un estado
+/*
+ * Method: State
+ * Description: Constructor
+ * Parameters:
+ * - cars: Stack de autos
+ * - op: Operacion que se realizo para llegar a este estado
+ * - padre: Padre de este estado
+ * - movingCar: Auto que se esta moviendo en este estado
+ * Returns:
+ * - Instancia de la clase State
+ */
 State::State(Stack *cars, Operation *op, State *padre, Car *movingCar)
 {
     this->cars = cars;
@@ -11,7 +21,16 @@ State::State(Stack *cars, Operation *op, State *padre, Car *movingCar)
     this->heuristica = 0;
 };
 
-// Contructor de un estado
+/*
+ * Method: State
+ * Description: Constructor
+ * Parameters:
+ * - cars: Stack de autos
+ * - op: Operacion que se realizo para llegar a este estado
+ * - idCar: Id del auto que se esta moviendo en este estado
+ * Returns:
+ * - Instancia de la clase State
+ */
 State::State(Stack *cars, Operation *op, int idCar)
 {
     this->cars = cars;
@@ -19,36 +38,66 @@ State::State(Stack *cars, Operation *op, int idCar)
     this->padre = nullptr;
     this->movingCar = nullptr;
     this->heuristica = 0;
-    // this->heuristica = CalcularHeuristica();
 };
 
 // Destructor de un estado
+/*
+ * Method: ~State
+ * Description: Destructor
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 State::~State(){
 
 };
 
-// Funcion para mostrar un estado
+/*
+ * Method: printState
+ * Description: Metodo para mostrar un estado
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void State::printState()
 {
     this->cars->printStack();
 };
 
-// Funcion para verificar si un estado es solucion
-
+/*
+ * Method: isSolution
+ * Description: Metodo para verificar si un estado es solucion
+ * Parameters:
+ * - void
+ * Returns:
+ * - bool
+ */
 bool State::isSolution()
 {
-    bool p = this->cars->contains(1, 4, 2, 2, HORIZONTAL); // Busca el auto rojo en la posicion de salida
+    // Busca el auto rojo en la posicion de salida
+    bool p = this->cars->contains(1, 4, 2, 2, HORIZONTAL);
     if (p)
     {
-        return true; // Si el auto rojo esta en la posicion de salida, entonces es solucion
+        // Si el auto rojo esta en la posicion de salida, entonces es solucion
+        return true;
     }
     else
     {
-        return false; // Si el auto rojo no esta en la posicion de salida, entonces no es solucion
+        // Si el auto rojo no esta en la posicion de salida, entonces no es solucion
+        return false;
     }
 };
 
-// Funcion para convertir un estado a string
+/*
+ * Method: toString
+ * Description: Metodo para para convertir un estado a string
+ * Parameters:
+ * - void
+ * Returns:
+ * - string
+ */
 std::string State::toString() const
 {
     std::stringstream sstream;
@@ -60,13 +109,27 @@ std::string State::toString() const
     return sstream.str();
 };
 
-// Funcion para obtener los autos de un estado
+/*
+ * Method: getCars
+ * Description: Metodo para obtener los autos de un estado
+ * Parameters:
+ * - void
+ * Returns:
+ * - stack de autos
+ */
 Stack *State::getCars() const
 {
     return this->cars;
 };
 
-// Funcion para mostrar la solucion final
+/*
+ * Method: printSolution
+ * Description: Metodo para mostrar la solucion final
+ * Parameters:
+ * - void
+ * Returns:
+ * - void
+ */
 void State::printSolution()
 {
     if (this->padre != nullptr)
