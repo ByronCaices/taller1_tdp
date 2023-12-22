@@ -2,7 +2,7 @@
 #include <string>
 #include "../src/Estado.h"
 #include "../src/VectorString.h"
-#include "../src/Vector.h"
+#include "../src/Stack.h"
 
 int main(){
 
@@ -12,7 +12,7 @@ int main(){
 
     //Creamos un vector de autos
 
-    Vector *autos = new Vector(10);
+    Stack *autos = new Stack(10);
 
     //Creamos autos para ingresar al vector
 

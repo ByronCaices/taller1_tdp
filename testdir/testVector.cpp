@@ -1,10 +1,10 @@
 #include "../src/Auto.h"
-#include "../src/Vector.h"
+#include "../src/Stack.h"
 
 int main(){
 
     //creamos el vector
-    Vector *vector = new Vector(10);
+    Stack *vector = new Stack(10);
 
     //creamos los autos
     Auto *auto1 = new Auto(1,2,2,0,0);

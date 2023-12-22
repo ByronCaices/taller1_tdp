@@ -1,6 +1,6 @@
 #include "../src/Estado.h"
 #include "../src/Auto.h"
-#include "../src/Vector.h"
+#include "../src/Stack.h"
 
 int main(){
 
@@ -13,7 +13,7 @@ int main(){
     
     //creamos el vector
 
-    Vector *vector = new Vector(10);
+    Stack *vector = new Stack(10);
 
     //agregamos los autos al vector
 

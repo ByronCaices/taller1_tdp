@@ -4,7 +4,7 @@
 #include "Auto.h"
 #include "Estado.h"
 #include "Heap.h"
-#include "Vector.h"
+#include "Stack.h"
 #include "VectorString.h"
 using namespace std;
 
@@ -89,12 +89,12 @@ Estado *Tablero::resolver(Estado *inicial)
             return aux;
         }
 
-        Vector *autos = actual->getAutos();  // obtenemos el Vector de autos del estado actual
+        Stack *autos = actual->getAutos();  // obtenemos el Vector de autos del estado actual
 
-        for (int i = 0; i <= autos->tope; i++)  // por cada auto en el Vector de autos
+        for (int i = 0; i <= autos->top; i++)  // por cada auto en el Vector de autos
         {
             
-            Auto *autoCopia = autos->vector[i];  // obtenemos el auto
+            Auto *autoCopia = autos->stack[i];  // obtenemos el auto
             
 
             for (int j = 0; j < 8; j++) // por cada operacion
@@ -112,7 +112,7 @@ Estado *Tablero::resolver(Estado *inicial)
                     }
                     else
                     {
-                        Vector *autosCopia = copiarVectorProfundamente(autos); // copiamos el Vector de autos
+                        Stack *autosCopia = copiarVectorProfundamente(autos); // copiamos el Vector de autos
                         autosCopia->remplazar(nuevoAuto); // remplazamos el auto en el Vector de autos
                         
                         Estado *nuevoEstado = new Estado(autosCopia, &this->operaciones[j], actual, nuevoAuto); // creamos un nuevo estado con el Vector de autos copiado
@@ -131,12 +131,12 @@ Estado *Tablero::resolver(Estado *inicial)
 };
 
 // Funcion para copiar un Vector de autos
-Vector *Tablero::copiarVectorProfundamente(Vector *original) // copia el Vector de autos
+Stack *Tablero::copiarVectorProfundamente(Stack *original) // copia el Vector de autos
 {
-    Vector *copia = new Vector(original->capacidad);
-    for (int i = 0; i <= original->tope; i++)
+    Stack *copia = new Stack(original->cap);
+    for (int i = 0; i <= original->top; i++)
     {
-        Auto *autoOriginal = original->vector[i];
+        Auto *autoOriginal = original->stack[i];
         Auto *autoCopia = new Auto(*autoOriginal); 
         copia->push(autoCopia);
     }
@@ -144,7 +144,7 @@ Vector *Tablero::copiarVectorProfundamente(Vector *original) // copia el Vector 
 }
 
 // Funcion para llenar el tablero con los autos del Vector de autos
-void Tablero::llenarTablero(Vector *autos) 
+void Tablero::llenarTablero(Stack *autos) 
 {
 
     for (int i = 0; i < this->Largo; i++) // llenamos el tablero con ceros
@@ -155,9 +155,9 @@ void Tablero::llenarTablero(Vector *autos)
         }
     }
 
-    for (int i = 0; i <= autos->tope; i++) // llenamos el tablero con los autos del Vector de autos
+    for (int i = 0; i <= autos->top; i++) // llenamos el tablero con los autos del Vector de autos
     {
-        Auto *auto_ = autos->vector[i];
+        Auto *auto_ = autos->stack[i];
         int x = auto_->posX;
         int y = auto_->posY;
         int largo = auto_->Largo; 

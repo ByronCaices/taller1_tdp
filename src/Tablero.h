@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Operacion.h"
-#include "Vector.h"
+#include "Stack.h"
 #include "Estado.h"
 
 class Tablero{
@@ -12,8 +12,8 @@ class Tablero{
         ~Tablero(); // Destructor de un tablero
         Auto* operarauto(Auto* auto_); // Funcion para operar un auto 
         Estado* resolver(Estado* estadoinicial); // Funcion para resolver el problema 
-        Vector* copiarVectorProfundamente(Vector* original); // Funcion para copiar un vector profundamente 
-        void llenarTablero(Vector* autos); // Funcion para llenar el tablero con los autos del vector de autos
+        Stack* copiarVectorProfundamente(Stack* original); // Funcion para copiar un vector profundamente 
+        void llenarTablero(Stack* autos); // Funcion para llenar el tablero con los autos del vector de autos
         void vaciarTablero(); // Funcion para vaciar el tablero
         void MostarTablero(); // Funcion para mostrar el tablero
         void setParedes(int** paredes); // Funcion para setear las paredes

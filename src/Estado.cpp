@@ -3,7 +3,7 @@
 
 
 //Contructor de un estado
-Estado::Estado(Vector *autos, Operacion *Op, Estado *padre, Auto *automoviendose)
+Estado::Estado(Stack *autos, Operacion *Op, Estado *padre, Auto *automoviendose)
 {
     this->autos = autos;
     this->Op = Op;
@@ -14,7 +14,7 @@ Estado::Estado(Vector *autos, Operacion *Op, Estado *padre, Auto *automoviendose
 };
 
 //Contructor de un estado
-Estado::Estado(Vector *autos, Operacion *Op, int idAuto)
+Estado::Estado(Stack *autos, Operacion *Op, int idAuto)
 {
     this->autos = autos;
     this->Op = Op;
@@ -65,16 +65,16 @@ int Estado::CalcularHeuristica() const
 std::string Estado::toString() const
 {
     std::stringstream ss;
-    for (int i = 0; i <= this->autos->tope; i++)
+    for (int i = 0; i <= this->autos->top; i++)
     {
-        const Auto *auto_ = this->autos->vector[i];
+        const Auto *auto_ = this->autos->stack[i];
         ss << auto_->id << " " << auto_->posX << " " << auto_->posY << " " << auto_->Direccion << " " << auto_->Largo << std::endl;
     }
     return ss.str();
 };
 
 // Funcion para obtener los autos de un estado
-Vector *Estado::getAutos() const
+Stack *Estado::getAutos() const
 {
     return this->autos;
 };

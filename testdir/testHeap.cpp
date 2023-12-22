@@ -2,7 +2,7 @@
 
 int main()
 {
-    Vector *autos = new Vector(10);
+    Stack *autos = new Stack(10);
 
     //Creamos autos cualquieras
     autos->push(new Auto(1, 4, 2, 2, HORIZONTAL));

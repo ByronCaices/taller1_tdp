@@ -1,26 +1,26 @@
 #ifndef ESTADO_H
 #define ESTADO_H
 #include <iostream>
-#include "Vector.h"
+#include "Stack.h"
 #include "Operacion.h"
 
 
 class Estado{
     public:
-        Estado(Vector *autos, Operacion *Op, Estado *padre, Auto* automoviendose); // Constructor de un estado
-        Estado(Vector *autos, Operacion *Op, int idAuto); // Constructor de un estado 
+        Estado(Stack *autos, Operacion *Op, Estado *padre, Auto* automoviendose); // Constructor de un estado
+        Estado(Stack *autos, Operacion *Op, int idAuto); // Constructor de un estado 
         ~Estado(); // Destructor de un estado
         void mostrarEstado(); // Funcion para mostrar un estado
         bool esSolucion(); // Funcion para verificar si un estado es solucion
         int CalcularHeuristica() const; // Funcion para calcular la heuristica de un estado
-        Vector* getAutos() const; // Funcion para obtener los autos de un estado
+        Stack* getAutos() const; // Funcion para obtener los autos de un estado
         void mostrartablero(); // Funcion para mostrar el tablero de un estado
         void mostrarsolucion(); // Funcion para mostrar la solucion de un estado
 
         
 
     //private:
-        Vector *autos; // Vector de autos
+        Stack *autos; // Vector de autos
         Operacion *Op; // Operacion que se realizo para llegar a este estado
         Estado *padre;  // Padre de este estado
         Auto* automoviendose; // Auto que se esta moviendo en este estado

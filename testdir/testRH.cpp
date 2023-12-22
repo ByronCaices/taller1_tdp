@@ -9,13 +9,13 @@ using namespace std;
 
 
 //creamos las funciones que necesitamos para leer los archivos
-Vector readFile(string carsFile) {
+Stack readFile(string carsFile) {
     int x, y, largo, dir;
     int **data = new int*[18]; // 18 es el maximo de autos. 3 por fila (de largo 2) x 6 filas
     ifstream file(carsFile); // es un stream de "FileInput" desde un archivo. 
     string line; // es un objeto que representa un arreglo de char que es auto ajustable.
     int count=0; // cuenta la cantidad de autos (uno por linea)
-    Vector open(18); // 18 es el maximo de autos. 3 por fila (de largo 2) x 6 filas
+    Stack open(18); // 18 es el maximo de autos. 3 por fila (de largo 2) x 6 filas
     int FirsId = 1; // id del auto actual
     while (getline(file, line)) { // lee una linea del archivo y la guarda en "line". Si no hay mas lineas, sale del while(retorna false).
         count++;
@@ -66,7 +66,7 @@ int** paredes(string wallsFile){
 
 int main(){
     //creamos el vector de autos y la matriz de paredes
-    Vector autos = readFile("game1.txt");
+    Stack autos = readFile("game1.txt");
     int** walls = paredes("walls1.txt");
 
     //creamos el estado inicial
